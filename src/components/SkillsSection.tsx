@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Terminal, Database, TrendingUp, GitMerge, Bot, CheckCircle, Sparkles } from 'lucide-react';
 import { SKILL_CATEGORIES } from '../data/portfolioData';
+import { content } from '../data/siteContent';
 
 export const SkillsSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -34,10 +35,10 @@ export const SkillsSection: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 font-serif-heading">
-                핵심 역량 및 기술 스택
+                {content.skills.heading}
               </h2>
               <p className="text-base text-zinc-600 font-sans">
-                논문과 프로젝트에서 실제로 사용한 것만 적었습니다
+                {content.skills.subheading}
               </p>
             </div>
 

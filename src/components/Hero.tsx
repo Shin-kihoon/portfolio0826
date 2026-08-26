@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Github, ArrowUpRight, GraduationCap, Database, BarChart3, ShieldCheck, Sparkles, Copy, Check } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { content } from '../data/siteContent';
 
 interface HeroProps {
   onScrollToSection: (sectionId: string) => void;
@@ -39,15 +40,15 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToSection }) => {
                 신기훈 <span className="text-2xl sm:text-3xl text-zinc-400 font-sans font-normal ml-2">Kihoon Shin</span>
               </h1>
               <p className="text-xl sm:text-2xl font-medium text-zinc-800 tracking-tight">
-                Financial Data Analyst
+                {content.hero.headline}
               </p>
               <p className="text-xs font-mono-code text-zinc-500">
-                실증금융 · 계량 분석 · 데이터 파이프라인
+                {content.hero.tagline}
               </p>
             </div>
 
             <p className="text-base sm:text-lg text-zinc-700 leading-relaxed max-w-2xl font-normal">
-              금융 데이터에서 사람의 행태를 읽고, 그것을 코드로 검증합니다. 배당금의 끝자리에서 경영진의 무관심을 찾아낸 석사논문을 썼고, 분석에서 멈추지 않고 파이프라인과 서비스로 만드는 데까지 관심이 있습니다.
+              {content.hero.bio}
             </p>
 
             {/* Quick Action Buttons */}
@@ -58,7 +59,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToSection }) => {
                 className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-lg text-sm font-semibold bg-zinc-900 text-zinc-50 hover:bg-zinc-800 transition-all cursor-pointer shadow-xs active:scale-98"
               >
                 <BarChart3 className="w-4 h-4 text-zinc-300" />
-                <span>석사학위논문 요약 보기</span>
+                <span>{content.hero.ctaPrimary}</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
 
@@ -67,7 +68,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToSection }) => {
                 onClick={() => onScrollToSection('projects')}
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-white hover:bg-zinc-100 text-zinc-900 border border-zinc-200 transition-all cursor-pointer"
               >
-                <span>프로젝트 명세</span>
+                <span>{content.hero.ctaSecondary}</span>
               </button>
 
               <a

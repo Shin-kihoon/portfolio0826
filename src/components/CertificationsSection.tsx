@@ -1,6 +1,7 @@
 import React from 'react';
 import { Award, Shield, CheckCircle2, Globe } from 'lucide-react';
 import { CERTIFICATIONS } from '../data/portfolioData';
+import { content } from '../data/siteContent';
 
 export const CertificationsSection: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ export const CertificationsSection: React.FC = () => {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 font-serif-heading">
-            전문 자격증 및 어학
+            {content.certifications.heading}
           </h2>
           <p className="text-base text-zinc-600 font-sans">
             금융투자업계 법정 전문인력 자격 및 국가공인 데이터 분석 기사

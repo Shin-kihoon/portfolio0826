@@ -5,6 +5,7 @@ import { ResearchSection } from './components/ResearchSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { EducationSection } from './components/EducationSection';
 import { SkillsSection } from './components/SkillsSection';
+import { InterestsSection } from './components/InterestsSection';
 import { CertificationsSection } from './components/CertificationsSection';
 import { ContactSection } from './components/ContactSection';
 import { CitationModal } from './components/CitationModal';
@@ -41,6 +42,7 @@ export default function App() {
         <ProjectsSection />
         <EducationSection />
         <SkillsSection />
+        <InterestsSection />
         <CertificationsSection />
       </main>
 

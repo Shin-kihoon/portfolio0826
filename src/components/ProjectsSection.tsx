@@ -5,6 +5,7 @@ import { renderRich } from './ProjectRich';
 import { DepositTokenSimulator } from './DepositTokenSimulator';
 import { SalaryDoctorPipeline } from './SalaryDoctorPipeline';
 import type { ProjectBadgeTone, ProjectIcon } from '../types';
+import { content } from '../data/siteContent';
 
 const BADGE_TONE: Record<ProjectBadgeTone, string> = {
   dark: 'bg-zinc-900 text-zinc-100 font-bold',
@@ -34,20 +35,20 @@ export const ProjectsSection: React.FC = () => (
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-zinc-900" />
           <span className="text-xs font-bold uppercase tracking-wider text-zinc-500 font-mono-code">
-            Engineering &amp; Systems Projects
+            {content.projects.eyebrow}
           </span>
         </div>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 font-serif-heading">
-              연구·개발 프로젝트
+              {content.projects.heading}
             </h2>
             <p className="text-base text-zinc-600 font-sans">
-              금융제도 주제를 실제 동작하는 코드로 옮긴 작업입니다
+              {content.projects.subheading}
             </p>
           </div>
           <span className="text-xs font-mono-code text-zinc-500 bg-white px-3 py-1.5 rounded-lg border border-zinc-200">
-            Solidity · Python · JavaScript
+            {content.projects.stackChip}
           </span>
         </div>
       </div>

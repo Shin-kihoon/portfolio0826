@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Github, FileText, Check, Layers, ExternalLink } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { content } from '../data/siteContent';
 
 interface HeaderProps {
   onOpenDesignSystem: () => void;
@@ -52,50 +53,25 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDesignSystem, onOpenCitati
                   ({PERSONAL_INFO.nameEn})
                 </span>
               </span>
-              <span className="text-[11px] text-zinc-500 hidden sm:inline-block font-medium">
-                SNU Business School · Empirical Finance
+              <span className="text-[11px] text-zinc-500 hidden xl:inline-block font-medium whitespace-nowrap">
+                {content.header.affiliation}
               </span>
             </div>
           </a>
         </div>
 
         {/* Center Nav Anchors */}
-        <nav className="hidden md:flex items-center gap-1 text-xs font-medium text-zinc-600">
-          <a
-            id="nav-link-research"
-            href="#research"
-            className="px-3 py-1.5 rounded-md hover:text-zinc-950 hover:bg-zinc-100 transition-colors"
-          >
-            석사학위논문
-          </a>
-          <a
-            id="nav-link-projects"
-            href="#projects"
-            className="px-3 py-1.5 rounded-md hover:text-zinc-950 hover:bg-zinc-100 transition-colors"
-          >
-            연구·개발 프로젝트
-          </a>
-          <a
-            id="nav-link-education"
-            href="#education"
-            className="px-3 py-1.5 rounded-md hover:text-zinc-950 hover:bg-zinc-100 transition-colors"
-          >
-            학력
-          </a>
-          <a
-            id="nav-link-skills"
-            href="#skills"
-            className="px-3 py-1.5 rounded-md hover:text-zinc-950 hover:bg-zinc-100 transition-colors"
-          >
-            역량·스택
-          </a>
-          <a
-            id="nav-link-certifications"
-            href="#certifications"
-            className="px-3 py-1.5 rounded-md hover:text-zinc-950 hover:bg-zinc-100 transition-colors"
-          >
-            자격증
-          </a>
+        <nav className="hidden lg:flex items-center gap-0.5 text-xs font-medium text-zinc-600 shrink-0">
+          {content.header.nav.map((item) => (
+            <a
+              key={item.id}
+              id={item.id}
+              href={item.href}
+              className="px-2.5 py-1.5 rounded-md whitespace-nowrap hover:text-zinc-950 hover:bg-zinc-100 transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
 
         {/* Right Actions */}
@@ -108,7 +84,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDesignSystem, onOpenCitati
             title="설계 시스템 요약표 및 변경점"
           >
             <Layers className="w-3.5 h-3.5 text-zinc-600" />
-            <span>설계 시스템 명세</span>
+            <span>{content.header.designSpecBtn}</span>
           </button>
 
           {/* Citation Button */}
@@ -119,7 +95,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDesignSystem, onOpenCitati
             title="학술 논문 인용 정보"
           >
             <FileText className="w-3.5 h-3.5 text-zinc-500" />
-            <span className="hidden sm:inline">논문 인용</span>
+            <span className="hidden sm:inline">{content.header.citationBtn}</span>
           </button>
 
           {/* Copy Email */}
@@ -132,13 +108,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDesignSystem, onOpenCitati
             {copied ? (
               <>
                 <Check className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
-                <span className="font-mono-code">복사 완료!</span>
+                <span className="font-mono-code">{content.header.copied}</span>
               </>
             ) : (
               <>
                 <Mail className="w-3.5 h-3.5 shrink-0" />
                 <span className="font-mono-code hidden md:inline">{PERSONAL_INFO.email}</span>
-                <span className="font-mono-code md:hidden">이메일</span>
+                <span className="font-mono-code md:hidden">{content.header.emailBtnShort}</span>
               </>
             )}
           </button>

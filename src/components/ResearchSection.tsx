@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, Database, TrendingUp, CheckCircle2, AlertCircle, Sparkles, FileCode, Layers, ArrowRight, Table, BarChart2 } from 'lucide-react';
 import { THESIS_DATA } from '../data/portfolioData';
+import { content } from '../data/siteContent';
+import { renderRich } from './ProjectRich';
 
 export const ResearchSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'empirical' | 'identification' | 'pipeline'>('empirical');
@@ -17,32 +19,27 @@ export const ResearchSection: React.FC = () => {
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-zinc-900" />
             <span className="text-xs font-bold uppercase tracking-wider text-zinc-500 font-mono-code">
-              Master's Thesis Research
+              {content.research.eyebrow}
             </span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 font-serif-heading">
-                한국 상장기업의 배당 정밀도와 주식수익률
+                {content.research.heading}
               </h2>
               <p className="text-base text-zinc-600 mt-1 font-sans">
                 Dennis & Weston (2025, <em className="italic">JCF</em>) "Lazy Dividends" 연구의 한국 자본시장 복제 및 확장 분석
               </p>
               <p className="text-sm text-zinc-600 mt-4 leading-relaxed max-w-2xl font-sans">
-                배당금을 500원, 1,000원처럼 둥근 숫자에 맞추는 기업이 있고 끝자리까지 조정하는 기업이 있습니다.
-                앞의 선택은 배당 수준을 진지하게 계산한 결과라기보다 어림수로 맞춘 결과일 수 있습니다.
-                그렇다면 둥근 배당은 <strong className="text-zinc-900 font-semibold">관측 가능한 무관심의 대리변수</strong>이고,
-                그 무관심이 배당 결정에만 머물지 않을 것이라는 가설을 검정했습니다.
+                {renderRich(content.research.narrativeHypothesis)}
               </p>
               <p className="text-sm text-zinc-600 mt-3 leading-relaxed max-w-2xl font-sans">
-                원자료 정제부터 포트폴리오 알파·매칭표본·패널회귀까지 Python으로 직접 처리했습니다.
-                가장 오래 붙들었던 것은 결과를 얻는 일이 아니라{' '}
-                <strong className="text-zinc-900 font-semibold">통제변수 구성에 따라 계수 부호가 뒤집히는 지점을 추적해 원인을 특정하는 일</strong>이었습니다.
+                {renderRich(content.research.narrativeWork)}
               </p>
             </div>
             <div className="flex items-center gap-2 font-mono-code text-xs text-zinc-600 bg-zinc-50 px-3 py-1.5 rounded-lg border border-zinc-200">
               <BookOpen className="w-3.5 h-3.5 text-zinc-700" />
-              <span>서울대학교 경영대학원 석사학위논문</span>
+              <span>{content.research.affiliationChip}</span>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { GraduationCap, Award, BookCheck, Sparkles, Calendar, CheckCircle } from 'lucide-react';
 import { EDUCATION_LIST } from '../data/portfolioData';
+import { content } from '../data/siteContent';
 
 export const EducationSection: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ export const EducationSection: React.FC = () => {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 font-serif-heading">
-            학력 및 전문 교육과정
+            {content.education.heading}
           </h2>
           <p className="text-base text-zinc-600 font-sans">
             재무금융 계량경제학 석사 연구 및 빅데이터 핀테크 심화 교육

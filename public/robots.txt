@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shinkihoonportfolio.netlify.app/sitemap.xml
