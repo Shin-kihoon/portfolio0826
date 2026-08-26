@@ -36,19 +36,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDesignSystem, onOpenCitati
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Left branding / title */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 min-w-0">
           <a
             id="header-home-link"
             href="#hero"
-            className="group flex items-center gap-2.5 focus:outline-hidden"
+            className="group flex items-center gap-2.5 focus:outline-hidden min-w-0"
           >
-            <span className="w-8 h-8 rounded-md bg-zinc-900 text-zinc-50 flex items-center justify-center font-serif-heading text-lg font-bold group-hover:bg-zinc-800 transition-colors">
+            <span className="w-8 h-8 shrink-0 rounded-md bg-zinc-900 text-zinc-50 flex items-center justify-center font-serif-heading text-lg font-bold group-hover:bg-zinc-800 transition-colors">
               愼
             </span>
-            <div className="flex flex-col">
-              <span className="text-sm font-bold text-zinc-900 tracking-tight flex items-center gap-1.5">
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm font-bold text-zinc-900 tracking-tight flex items-center gap-1.5 whitespace-nowrap">
                 {PERSONAL_INFO.nameKo}
-                <span className="text-xs font-normal text-zinc-500 font-mono-code">
+                <span className="text-xs font-normal text-zinc-500 font-mono-code hidden sm:inline">
                   ({PERSONAL_INFO.nameEn})
                 </span>
               </span>
@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDesignSystem, onOpenCitati
         </nav>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           {/* Design System Spec button */}
           <button
             id="header-design-spec-btn"
@@ -115,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDesignSystem, onOpenCitati
           <button
             id="header-citation-btn"
             onClick={onOpenCitation}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium text-zinc-700 hover:bg-zinc-100 border border-zinc-200/80 transition-all cursor-pointer"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium text-zinc-700 hover:bg-zinc-100 border border-zinc-200/80 transition-all cursor-pointer shrink-0"
             title="학술 논문 인용 정보"
           >
             <FileText className="w-3.5 h-3.5 text-zinc-500" />
@@ -131,13 +131,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDesignSystem, onOpenCitati
           >
             {copied ? (
               <>
-                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <Check className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
                 <span className="font-mono-code">복사 완료!</span>
               </>
             ) : (
               <>
-                <Mail className="w-3.5 h-3.5" />
-                <span className="font-mono-code">kenny1008@snu.ac.kr</span>
+                <Mail className="w-3.5 h-3.5 shrink-0" />
+                <span className="font-mono-code hidden md:inline">{PERSONAL_INFO.email}</span>
+                <span className="font-mono-code md:hidden">이메일</span>
               </>
             )}
           </button>
@@ -148,7 +149,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDesignSystem, onOpenCitati
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-1.5 rounded-md text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100 border border-zinc-200/80 transition-colors"
+            className="p-1.5 rounded-md text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100 border border-zinc-200/80 transition-colors shrink-0"
             title="GitHub 프로필 방문"
           >
             <Github className="w-4 h-4" />

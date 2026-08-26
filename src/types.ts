@@ -16,18 +16,36 @@ export interface RegressionResult {
   description: string;
 }
 
+export type ProjectBadgeTone = 'dark' | 'emerald' | 'indigo' | 'muted';
+export type ProjectIcon = 'shield' | 'refresh' | 'check' | 'git';
+export type ProjectLinkKind = 'repo' | 'demo';
+
+export interface ProjectBadge {
+  label: string;
+  tone: ProjectBadgeTone;
+}
+
+export interface ProjectLink {
+  label: string;
+  url: string;
+  kind: ProjectLinkKind;
+}
+
+/** title / desc 는 **굵게** 와 `코드` 표기를 지원한다 (renderRich). */
+export interface ProjectKeyPoint {
+  icon: ProjectIcon;
+  title: string;
+  desc: string;
+}
+
 export interface ProjectData {
   id: string;
   title: string;
   subtitle: string;
-  role: string;
-  stack: string[];
-  repoUrl?: string;
-  demoUrl?: string;
   summary: string;
-  keyPoints: string[];
-  architecturePoints: { title: string; desc: string }[];
-  testMetric?: { total: number; evmScenario: number; jsdom: number };
+  badges: ProjectBadge[];
+  links: ProjectLink[];
+  keyPoints: ProjectKeyPoint[];
 }
 
 export interface EducationData {

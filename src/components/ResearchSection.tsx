@@ -36,7 +36,7 @@ export const ResearchSection: React.FC = () => {
               </p>
               <p className="text-sm text-zinc-600 mt-3 leading-relaxed max-w-2xl font-sans">
                 원자료 정제부터 포트폴리오 알파·매칭표본·패널회귀까지 Python으로 직접 처리했습니다.
-                가장 오래 붙들었던 것은 결과를 얻는 일이 아니라,
+                가장 오래 붙들었던 것은 결과를 얻는 일이 아니라{' '}
                 <strong className="text-zinc-900 font-semibold">통제변수 구성에 따라 계수 부호가 뒤집히는 지점을 추적해 원인을 특정하는 일</strong>이었습니다.
               </p>
             </div>

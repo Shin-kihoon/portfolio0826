@@ -93,55 +93,53 @@ export const PROJECTS_DATA: ProjectData[] = [
     id: 'krw-deposit-token',
     title: '지역사랑상품권 예금토큰 (Local Currency Deposit Token)',
     subtitle: '사용처 제한을 사후 적발에서 사전 불가능성으로',
-    role: '설계 및 구현 (개인 프로젝트)',
-    stack: ['Solidity 0.8.26', 'JavaScript', '로컬 EVM', 'jsdom'],
-    repoUrl: 'https://github.com/Shin-kihoon/krw-deposit-token',
-    demoUrl: 'https://shin-kihoon.github.io/krw-deposit-token/',
-    summary: '지역사랑상품권의 사용처 규칙은 현재 가맹점을 등록해두고 위반을 나중에 적발하는 방식입니다. 이 프로젝트는 그 규칙을 스마트계약의 실행 조건으로 옮겨, 조건을 만족하지 못하는 결제가 적발되는 것이 아니라 애초에 성립하지 않도록 만들었습니다. 학습·포트폴리오 목적의 구현입니다.',
+    summary:
+      '지역사랑상품권의 사용처 규칙은 현재 가맹점을 등록해두고 위반을 나중에 적발하는 방식입니다. 이 프로젝트는 그 규칙을 스마트계약의 실행 조건으로 옮겨, 조건을 만족하지 못하는 결제가 적발되는 것이 아니라 애초에 성립하지 않도록 만들었습니다. 학습·포트폴리오 목적의 구현입니다.',
+    badges: [
+      { label: 'Solidity 0.8.26', tone: 'dark' },
+      { label: '54 Tests Passed (29 EVM + 25 jsdom)', tone: 'emerald' },
+    ],
+    links: [
+      { label: 'GitHub Repo', url: 'https://github.com/Shin-kihoon/krw-deposit-token', kind: 'repo' },
+      { label: 'Live Demo', url: 'https://shin-kihoon.github.io/krw-deposit-token/', kind: 'demo' },
+    ],
     keyPoints: [
-      '업종·지역·기한을 만족하지 못하는 결제는 revert 된다. 가맹점에서 이용자로 되돌아가는 함수는 만들지 않아, 현금화는 단속 대상이 아니라 코드에 경로가 없다',
-      '무기명이 아닌 기명증서 모델. 토큰을 이용자가 자기 거래은행에 대해 갖는 청구권으로 정의해 KYC 경계가 항상 유지된다',
-      '은행 간 결제는 지급인 은행에서 소각하고 수취인 은행에서 재발행한다. 그 결과 총 발행량이 변하지 않는다 (화폐의 단일성)',
-      '테스트 54건 통과 — EVM 시나리오 29 + 데모 jsdom 단언 25. 데모가 계약보다 관대해지지 않도록 revert 사유 문자열까지 대조',
-    ],
-    architecturePoints: [
       {
-        title: '결제 경로를 하나로 제한',
-        desc: 'ERC-20 인터페이스는 유지하되 approve / transferFrom 은 명시적으로 revert 한다. 임의 주소로의 이전이라는 개념 자체를 없애 무기명 유통을 구조적으로 막았다',
+        icon: 'shield',
+        title: '사용처를 실행 조건으로 강제',
+        desc: '가맹점을 등록해두고 위반을 나중에 적발하는 대신, 업종(MCC)·지역 코드·유효기한을 계약의 실행 조건으로 확인해 조건을 만족하지 못하면 `revert` 합니다. 적발되는 것이 아니라 애초에 성립하지 않습니다.',
       },
       {
-        title: '총 발행량 불변식',
-        desc: '소각과 재발행이 항상 짝을 이루므로 은행 간 결제 전후로 totalSupply 가 변하지 않는다. 이 불변식이 깨지면 은행별로 토큰 가치가 갈라지므로 테스트에서 직접 단언한다',
+        icon: 'refresh',
+        title: '기명증서 모델 & 소각-재발행(Burn & Remint)',
+        desc: '토큰을 이용자가 자기 거래은행에 대해 갖는 청구권으로 정의했습니다. 임의 주소로의 이전이라는 개념이 없어 KYC 경계가 유지되고, 은행 간 결제는 지급인 은행에서 소각 후 수취인 은행에서 재발행하므로 **총 발행량이 변하지 않습니다**.',
       },
     ],
-    testMetric: {
-      total: 54,
-      evmScenario: 29,
-      jsdom: 25,
-    },
   },
   {
     id: 'salary-doctor',
     title: '연봉닥터 (Salary Doctor)',
     subtitle: '내 연봉 인상률은 물가를 이기고 있나',
-    role: '진단 로직 · 데이터 파이프라인 (팀 프로젝트, 커밋 56)',
-    stack: ['JavaScript', 'Python', 'OECD SDMX', 'Yahoo Finance', 'GitHub Actions'],
-    demoUrl: 'https://fintech-team-final.vercel.app/',
-    summary: '뉴스의 물가상승률은 전국 평균 지출 비중으로 가중한 값이라 사람마다 체감이 다릅니다. COICOP 12분류 기준 본인 지출 비중을 반영한 개인 물가를 따로 계산해 연봉 인상률과 비교합니다. 팀 프로젝트이며, 아래는 제가 맡은 부분입니다.',
-    keyPoints: [
-      '연봉 3,600만원에 생활비 연 6,000만원을 넣어도 "괜찮아요"로 진단되던 문제를 고쳤다. 판정이 "인상률이 물가를 이겼나"만 보고 수지 여부를 아예 묻지 않았다. 물가 판정은 두고 수지 판정을 별도 축으로 추가했다',
-      '한 카테고리에서 하나만 답하면 나머지가 0원 처리되어 총 생활비가 180 → 139만원으로 떨어지는데 안내가 없던 문제. "잘 몰라요" 경로를 만들어 가구 통계 평균으로 되돌리게 했다',
-      '데이터 자동 갱신이 3일간 멈춘 문제 해결. GitHub은 봇이 만든 PR에 워크플로를 돌리지 않아 필수 검사가 영영 통과되지 않았다. 잡이 같은 검사를 직접 수행한 뒤 커밋 상태 API로 기록하도록 바꿨다',
-      '난수·하드코딩 수익률 패턴을 PR 단계에서 차단하는 검사 추가 — 화면의 모든 수치가 실제 데이터에서 오도록 강제한다',
+    summary:
+      '뉴스의 물가상승률은 전국 평균 지출 비중으로 가중한 값이라 사람마다 체감이 다릅니다. COICOP 12분류 기준 본인 지출 비중을 반영한 개인 물가를 따로 계산해 연봉 인상률과 비교합니다. 팀 프로젝트이며, 아래는 제가 맡은 부분입니다.',
+    badges: [
+      { label: '팀 프로젝트', tone: 'dark' },
+      { label: '커밋 56 · 진단 로직 · 데이터 파이프라인', tone: 'indigo' },
+      { label: 'OECD SDMX · Yahoo Finance · Frankfurter', tone: 'muted' },
     ],
-    architecturePoints: [
+    links: [
+      { label: 'Live Service', url: 'https://fintech-team-final.vercel.app/', kind: 'demo' },
+    ],
+    keyPoints: [
       {
-        title: '개인 물가 계산',
-        desc: 'OECD SDMX 에서 COICOP 12품목별 물가를 받아 본인 지출 비중으로 가중한다. 1인 가구 교통비를 월 20만원에서 60만원으로 바꾸면 개인 물가가 2.9% → 3.8% 로 달라진다',
+        icon: 'check',
+        title: '적자인데 "양호"로 진단하던 문제',
+        desc: '연봉 3,600만원에 생활비 연 6,000만원을 넣어도 "괜찮아요"로 진단됐습니다. 판정이 **"인상률이 물가를 이겼나"만 보고 수지 여부를 묻지 않은 것**이 원인이라, 물가 판정은 그대로 두고 수지 판정을 별도 축으로 추가했습니다.',
       },
       {
-        title: '실시간 조회와 스냅샷 분리',
-        desc: 'CORS 를 여는 API(OECD·Frankfurter·CoinGecko)는 브라우저가 직접 부르고, 막힌 Yahoo Finance 10년 시계열은 GitHub Actions 가 매일 받아 커밋한다. 외부 API 한 곳이 느려도 화면은 그려진다',
+        icon: 'git',
+        title: '봇 PR 데드락 해결과 가짜 데이터 차단',
+        desc: 'GitHub은 봇이 만든 PR에 워크플로를 돌리지 않아, 필수 검사가 영영 통과되지 않고 데이터 자동 갱신이 3일간 멈췄습니다. 잡이 같은 검사를 직접 돌린 뒤 커밋 상태 API로 기록하도록 바꿨습니다. 함께 `np.random` 등 난수·하드코딩 수치를 PR 단계에서 차단하는 검사를 추가했습니다.',
       },
     ],
   },
