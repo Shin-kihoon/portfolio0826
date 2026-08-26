@@ -9,10 +9,10 @@ export interface RegressionResult {
   model: string;
   dependentVar: string;
   alpha: string;
-  tStat: number;
+  tStat?: number;
   significance: '***' | '**' | '*' | 'n.s.';
   obs: string;
-  rSquared?: string;
+  spec: string;
   description: string;
 }
 

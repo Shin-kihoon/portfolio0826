@@ -37,7 +37,7 @@ export const SkillsSection: React.FC = () => {
                 핵심 역량 및 기술 스택
               </h2>
               <p className="text-base text-zinc-600 font-sans">
-                계량금융 모델링부터 분산원장 스마트계약 및 자동화 파이프라인까지의 풀스택 역량
+                논문과 프로젝트에서 실제로 사용한 것만 적었습니다
               </p>
             </div>
 

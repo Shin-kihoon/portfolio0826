@@ -105,7 +105,7 @@ export const DesignSystemModal: React.FC<DesignSystemModalProps> = ({ isOpen, on
                     Accent: Emerald-600 / Dark Slate (Zinc-900)
                   </td>
                   <td className="p-3">
-                    인위적인 보라/네온 그라데이션을 철저히 배제하고, 금융 저널 및 퀀트 터미널 특유의 고대비 흑백 및 신뢰의 에메랄드 그린 포인트 구축
+                    보라·네온 그라데이션을 쓰지 않고, 금융 저널에 가까운 고대비 흑백에 에메랄드 포인트만 더했습니다
                   </td>
                 </tr>
 

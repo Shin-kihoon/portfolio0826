@@ -66,7 +66,7 @@ export const ProjectsSection: React.FC = () => {
                 연구·개발 프로젝트
               </h2>
               <p className="text-base text-zinc-600 font-sans">
-                스마트계약 기반 금융 아키텍처 및 재현 가능한 데이터 파이프라인 엔지니어링
+                금융제도 주제를 실제 동작하는 코드로 옮긴 작업입니다
               </p>
             </div>
             <span className="text-xs font-mono-code text-zinc-500 bg-white px-3 py-1.5 rounded-lg border border-zinc-200">
@@ -91,7 +91,7 @@ export const ProjectsSection: React.FC = () => {
                 지역사랑상품권 예금토큰 (Local Currency Deposit Token)
               </h3>
               <p className="text-sm font-medium text-zinc-600">
-                스마트계약 기반 온체인 사용처 강제 및 기명증서 은행 간 결제 시스템
+                사용처 제한을 사후 적발에서 사전 불가능성으로
               </p>
             </div>
 
@@ -125,10 +125,10 @@ export const ProjectsSection: React.FC = () => {
             <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-100 space-y-2">
               <div className="text-xs font-bold text-zinc-800 flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>사전 온체인 사용처 강제 (Pre-execution Enforcement)</span>
+                <span>사용처를 실행 조건으로 강제</span>
               </div>
               <p className="text-xs text-zinc-600 leading-relaxed">
-                사후 영수증 검증이나 이상거래 탐지가 아닌, 스마트계약 실행 조건으로 업종(MCC), 관할 지자체 지역 코드, 유효기한을 확인하여 부적격 시 트랜잭션을 즉각 <code className="font-mono bg-zinc-200 px-1 py-0.5 rounded text-zinc-800 font-bold">revert</code> 처리합니다.
+                가맹점을 등록해두고 위반을 나중에 적발하는 대신, 업종(MCC)·지역 코드·유효기한을 계약의 실행 조건으로 확인해 조건을 만족하지 못하면 <code className="font-mono bg-zinc-200 px-1 py-0.5 rounded text-zinc-800 font-bold">revert</code> 합니다. 적발되는 것이 아니라 애초에 성립하지 않습니다.
               </p>
             </div>
 
@@ -138,7 +138,7 @@ export const ProjectsSection: React.FC = () => {
                 <span>기명증서 모델 & 소각-재발행(Burn & Remint)</span>
               </div>
               <p className="text-xs text-zinc-600 leading-relaxed">
-                무기명 전송을 배제한 기명식 증서 모델로 은행 간 KYC 경계를 완벽히 유지하며, 타 은행 가맹점 결제 시 원본 토큰 소각 후 대상 은행에서 재발행하여 <strong>총 통화량(Total Supply) 불변</strong>을 보장합니다.
+                토큰을 이용자가 자기 거래은행에 대해 갖는 청구권으로 정의했습니다. 임의 주소로의 이전이라는 개념이 없어 KYC 경계가 유지되고, 은행 간 결제는 지급인 은행에서 소각 후 수취인 은행에서 재발행하므로 <strong>총 발행량이 변하지 않습니다</strong>.
               </p>
             </div>
           </div>
@@ -257,7 +257,7 @@ export const ProjectsSection: React.FC = () => {
             <div className="space-y-2">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-2.5 py-0.5 rounded text-xs font-mono-code font-bold bg-zinc-900 text-zinc-100">
-                  Full-Stack FinTech
+                  팀 프로젝트
                 </span>
                 <span className="px-2.5 py-0.5 rounded text-xs font-mono-code bg-indigo-50 text-indigo-800 border border-indigo-200">
                   Team Project · 56 Commits
@@ -270,7 +270,7 @@ export const ProjectsSection: React.FC = () => {
                 연봉닥터 (Salary Doctor)
               </h3>
               <p className="text-sm font-medium text-zinc-600">
-                실질임금 진단 및 거시경제 지표 연동 자산배분 시뮬레이터
+                내 연봉 인상률은 물가를 이기고 있나
               </p>
             </div>
 
@@ -293,20 +293,20 @@ export const ProjectsSection: React.FC = () => {
             <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-100 space-y-2">
               <div className="text-xs font-bold text-zinc-800 flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>진단 알고리즘 결함 수정 및 판정 분리</span>
+                <span>적자인데 "양호"로 진단하던 문제</span>
               </div>
               <p className="text-xs text-zinc-600 leading-relaxed">
-                가계 지출이 소득을 초과하여 적자인 상태임에도 실질임금 지표 일부가 개선되었다는 이유로 "재무상태 양호"로 판정하던 중대 로직 결함을 발견하고, <strong>[물가 디플레이터 판정]</strong>과 <strong>[가계 수지 건전성 판정]</strong>을 독립 모듈로 엄밀히 분리하였습니다.
+                연봉 3,600만원에 생활비 연 6,000만원을 넣어도 "괜찮아요"로 진단됐습니다. 판정이 <strong>"인상률이 물가를 이겼나"만 보고 수지 여부를 묻지 않은 것</strong>이 원인이라, 물가 판정은 그대로 두고 수지 판정을 별도 축으로 추가했습니다.
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-100 space-y-2">
               <div className="text-xs font-bold text-zinc-800 flex items-center gap-1.5">
                 <GitBranch className="w-4 h-4 text-indigo-600" />
-                <span>CI 무결성 가드 & 봇 PR 데드락 해결</span>
+                <span>봇 PR 데드락 해결과 가짜 데이터 차단</span>
               </div>
               <p className="text-xs text-zinc-600 leading-relaxed">
-                PR 단계에서 <code className="font-mono bg-zinc-200 px-1 py-0.5 rounded text-zinc-800">np.random</code> 등 난수로 생성된 가짜 데이터가 프로덕션에 병합되지 않도록 AST 분석 기반 CI 룰을 구축하였으며, 자동화 봇 PR 시 발생하는 Commit Status API 권한 충돌 데드락을 해소하였습니다.
+                GitHub은 봇이 만든 PR에 워크플로를 돌리지 않아, 필수 검사가 영영 통과되지 않고 데이터 자동 갱신이 3일간 멈췄습니다. 잡이 같은 검사를 직접 돌린 뒤 커밋 상태 API로 기록하도록 바꿨습니다. 함께 <code className="font-mono bg-zinc-200 px-1 py-0.5 rounded text-zinc-800">np.random</code> 등 난수·하드코딩 수치를 PR 단계에서 차단하는 검사를 추가했습니다.
               </p>
             </div>
           </div>
@@ -315,7 +315,7 @@ export const ProjectsSection: React.FC = () => {
           <div className="p-5 rounded-xl bg-zinc-50 border border-zinc-200 space-y-3">
             <div className="text-xs font-bold text-zinc-800 font-mono-code flex items-center justify-between">
               <span>AUTOMATED MULTI-SOURCE DATA PIPELINE (GitHub Actions Daily Cron)</span>
-              <span className="text-emerald-700">Zero-Mocking Policy</span>
+              <span className="text-emerald-700">실제 데이터만 사용</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono-code">
@@ -323,7 +323,7 @@ export const ProjectsSection: React.FC = () => {
                 <div className="text-zinc-500 text-[10px]">SOURCE 1</div>
                 <div className="font-bold text-zinc-900">OECD SDMX API</div>
                 <div className="text-[11px] text-zinc-600 font-sans">
-                  국가별 실시간 CPI, 실질임금 지수 수집
+                  COICOP 12품목별 소비자물가 (실시간 조회)
                 </div>
               </div>
 
@@ -331,7 +331,7 @@ export const ProjectsSection: React.FC = () => {
                 <div className="text-zinc-500 text-[10px]">SOURCE 2</div>
                 <div className="font-bold text-zinc-900">Yahoo Finance</div>
                 <div className="text-[11px] text-zinc-600 font-sans">
-                  글로벌 주요 자산군(주식·채권·원자재) 일간 수익률
+                  10년 월말 종가 — Actions 가 매일 수집해 커밋
                 </div>
               </div>
 
@@ -339,7 +339,7 @@ export const ProjectsSection: React.FC = () => {
                 <div className="text-zinc-500 text-[10px]">SOURCE 3</div>
                 <div className="font-bold text-zinc-900">Frankfurter FX</div>
                 <div className="text-[11px] text-zinc-600 font-sans">
-                  실시간 환율 변동성 및 통화 가치 정규화
+                  원/달러 환율 (실시간 조회)
                 </div>
               </div>
             </div>

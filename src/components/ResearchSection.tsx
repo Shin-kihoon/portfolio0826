@@ -47,7 +47,7 @@ export const ResearchSection: React.FC = () => {
               19,519 <span className="text-xs font-normal text-zinc-500">개</span>
             </div>
             <p className="text-xs text-zinc-600 leading-snug">
-              2000~2024년 KIS-Value 한국 상장기업 firm-year 패널
+              KIS-Value 한국 상장기업 firm-year 패널 (2년 연속 배당)
             </p>
           </div>
 
@@ -173,7 +173,7 @@ export const ResearchSection: React.FC = () => {
                                 : 'bg-zinc-100 text-zinc-600'
                             }`}
                           >
-                            t = {reg.tStat} {reg.significance}
+                            {reg.tStat ? `t = ${reg.tStat} ` : ''}{reg.significance}
                           </span>
                         </div>
                         <div className="flex items-center justify-between mt-2 text-xs font-mono-code text-zinc-600">
@@ -207,10 +207,10 @@ export const ResearchSection: React.FC = () => {
                         t-statistic
                       </div>
                       <div className="text-xl font-bold text-zinc-900 font-mono-code mt-0.5">
-                        {selectedModel.tStat}
+                        {selectedModel.tStat ?? 'n.s.'}
                       </div>
-                      <div className="text-[10px] text-emerald-700 font-medium font-mono-code mt-0.5">
-                        {selectedModel.significance === '***' ? 'p < 0.001 (Highly Sig.)' : 'Placebo Invariant'}
+                      <div className="text-[10px] text-zinc-500 font-medium font-mono-code mt-0.5">
+                        {selectedModel.significance === '***' ? 'p < 0.01' : selectedModel.significance === '**' ? 'p < 0.05' : '비유의'}
                       </div>
                     </div>
 
@@ -228,13 +228,13 @@ export const ResearchSection: React.FC = () => {
 
                     <div className="p-3 rounded-lg bg-zinc-50 border border-zinc-100">
                       <div className="text-[11px] text-zinc-500 font-mono-code uppercase">
-                        R-Squared (Adj.)
+                        Specification
                       </div>
-                      <div className="text-xl font-bold text-zinc-900 font-mono-code mt-0.5">
-                        {selectedModel.rSquared || 'N/A'}
+                      <div className="text-base font-bold text-zinc-900 font-mono-code mt-1.5">
+                        {selectedModel.spec}
                       </div>
                       <div className="text-[10px] text-zinc-500 font-mono-code mt-0.5">
-                        Explanatory Power
+                        모형 사양
                       </div>
                     </div>
                   </div>
@@ -278,8 +278,8 @@ export const ResearchSection: React.FC = () => {
 
                       <div className="space-y-1">
                         <div className="flex justify-between text-xs font-mono-code">
-                          <span className="text-zinc-700 font-medium">3. Donut Placebo Synthetic Cutoff</span>
-                          <span className="text-zinc-500 font-medium">+0.42 bp/mo (t=0.28 n.s.)</span>
+                          <span className="text-zinc-700 font-medium">3. Donut Placebo (mod100 ∈ {'{'}10, 90{'}'})</span>
+                          <span className="text-zinc-500 font-medium">비유의 (n.s.)</span>
                         </div>
                         <div className="w-full h-3 bg-zinc-100 rounded-full overflow-hidden flex">
                           <div className="h-full bg-zinc-300 rounded-full transition-all duration-500" style={{ width: '4%' }} />

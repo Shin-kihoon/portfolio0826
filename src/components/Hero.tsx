@@ -39,15 +39,15 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToSection }) => {
                 신기훈 <span className="text-2xl sm:text-3xl text-zinc-400 font-sans font-normal ml-2">Kihoon Shin</span>
               </h1>
               <p className="text-xl sm:text-2xl font-medium text-zinc-800 tracking-tight">
-                실증금융 · 금융 데이터 분석
+                Financial Data Analyst
               </p>
               <p className="text-xs font-mono-code text-zinc-500">
-                Empirical Asset Pricing · Financial Data Analysis · Smart Contract Systems
+                실증금융 · 계량 분석 · 데이터 파이프라인
               </p>
             </div>
 
             <p className="text-base sm:text-lg text-zinc-700 leading-relaxed max-w-2xl font-normal">
-              재무금융과 계량 데이터 분석을 전공했습니다. 석사학위논문에서는 한국 상장기업의 배당 정밀도와 주식수익률 간의 관계를 실증 분석했으며, 파이썬 기반 데이터 파이프라인과 스마트계약 시스템 개발 경험을 갖추고 있습니다.
+              한국 상장기업 19,519 기업-연도 패널을 직접 구축해, 배당금의 끝자리라는 관측 가능한 신호가 기업의 미래 수익성을 예측하는지 검증한 석사논문을 썼습니다. 원자료 정제부터 포트폴리오 알파·매칭·패널회귀까지 Python 으로 직접 처리했고, 가장 오래 붙들었던 문제는 결과를 얻는 일이 아니라 통제변수 구성에 따라 계수 부호가 뒤집히는 지점을 추적해 원인을 특정하는 일이었습니다.
             </p>
 
             {/* Quick Action Buttons */}
@@ -132,7 +132,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToSection }) => {
                     19,519 <span className="text-[11px] font-normal text-zinc-500">개</span>
                   </div>
                   <div className="text-[10px] text-zinc-500 mt-0.5">
-                    상장사 firm-years (2000~2024)
+                    상장사 firm-years
                   </div>
                 </div>
 
