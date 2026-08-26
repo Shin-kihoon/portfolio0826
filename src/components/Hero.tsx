@@ -47,7 +47,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToSection }) => {
             </div>
 
             <p className="text-base sm:text-lg text-zinc-700 leading-relaxed max-w-2xl font-normal">
-              한국 상장기업 19,519 기업-연도 패널을 직접 구축해, 배당금의 끝자리라는 관측 가능한 신호가 기업의 미래 수익성을 예측하는지 검증한 석사논문을 썼습니다. 원자료 정제부터 포트폴리오 알파·매칭·패널회귀까지 Python 으로 직접 처리했고, 가장 오래 붙들었던 문제는 결과를 얻는 일이 아니라 통제변수 구성에 따라 계수 부호가 뒤집히는 지점을 추적해 원인을 특정하는 일이었습니다.
+              금융 데이터에서 사람의 행태를 읽고, 그것을 코드로 검증합니다. 배당금의 끝자리에서 경영진의 무관심을 찾아낸 석사논문을 썼고, 분석에서 멈추지 않고 파이프라인과 서비스로 만드는 데까지 관심이 있습니다.
             </p>
 
             {/* Quick Action Buttons */}
