@@ -56,8 +56,9 @@ export const PROJECTS_DATA: ProjectData[] = [
     stack: ['Python', 'pandas', 'rapidfuzz', 'FDIC BankFind API'],
     metrics: [
       { label: '대출기관 명단', value: '5,625', note: '2020년 PPP 취급기관' },
-      { label: '연결 대상', value: '605', note: 'CRA 보고 은행' },
-      { label: '해결 방식', value: '규칙 → 분류 모델', note: '수작업 검증 사례로 학습', highlight: true },
+      { label: '식별번호 연결', value: '461 / 605', note: 'CRA 보고 은행 기준' },
+      { label: '수작업 판정 기록', value: '552건', note: '본점·지점·합병 구분' },
+      { label: '해결 방식', value: '규칙 → 분류 모델', note: '수작업 판정을 라벨로 학습', highlight: true },
     ],
     keyPoints: [
       {
