@@ -53,26 +53,28 @@ export const PROJECTS_DATA: ProjectData[] = [
     period: '2025',
     role: '연구 보조 (RA)',
     question: '자료마다 다르게 기재된 은행명의 동일 실체 식별',
-    stack: ['Python', 'pandas', 'rapidfuzz', 'FDIC BankFind API'],
+    stack: ['Python', 'scikit-learn', 'rapidfuzz', 'pandas', 'FDIC BankFind API'],
     metrics: [
       { label: '대출기관 명단', value: '5,625', note: '2020년 PPP 취급기관' },
       { label: '식별번호 연결', value: '461 / 605', note: 'CRA 보고 은행 기준' },
-      { label: '수작업 판정 기록', value: '552건', note: '본점·지점·합병 구분' },
-      { label: '해결 방식', value: '규칙 → 분류 모델', note: '수작업 판정을 라벨로 학습', highlight: true },
+      { label: '매칭 정확도', value: '98.3% → 99.3%', note: '규칙 → 분류 모델', highlight: true },
+      { label: '규칙 오답 교정', value: '7건 중 5건', note: '합병·개명 사례' },
     ],
     keyPoints: [
       {
         icon: 'search',
-        title: '규칙 매칭의 한계',
-        desc: '합병·개명 시 식별번호 자체가 변경 → 이름 유사도만으로는 식별 불가',
+        title: '이름이 비슷할수록 정답이라는 가정이 깨지는 지점',
+        desc: '`Umpqua Bank` 의 정답은 합병으로 이름이 바뀐 `Columbia Bank`. 반대로 이름이 **완전일치하는 후보가 오답**인 건도 있었다',
       },
       {
         icon: 'check',
-        title: '분류 모델로 재적용',
-        desc: '수작업 검증한 경계 사례를 **정답 라벨로 학습**, 규칙이 놓친 오연결 교정',
+        title: '후보 집합 맥락을 특징으로',
+        desc: '후보 수 · 이름점수 순위 · 1등과의 격차를 추가. 후보를 하나씩 독립 채점하는 규칙이 표현하지 못하던 부분',
       },
     ],
-    links: [],
+    links: [
+      { label: '코드 · 결과', url: 'https://github.com/Shin-kihoon/ppp-bank-matching', kind: 'repo' },
+    ],
   },
   {
     id: 'lendingclub',
