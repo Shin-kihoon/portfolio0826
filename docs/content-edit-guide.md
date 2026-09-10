@@ -3,7 +3,7 @@
 **어떤 키를 고치면 어느 화면이 바뀌는지** 정리한 문서다.
 컴포넌트 파일(`src/components/*.tsx`)은 열 필요가 없다.
 
-수정 후에는 반드시 아래를 실행해 빌드가 깨지지 않았는지 확인한다.
+수정 후에는 아래를 실행해 빌드가 깨지지 않았는지 확인한다.
 
 ```bash
 npm run build
@@ -16,113 +16,53 @@ npm run build
 | 파일 | 담는 것 |
 |---|---|
 | `src/data/siteContent.ts` | **문구** — 섹션 제목, 소개문, 버튼 라벨, 내비게이션 |
-| `src/data/portfolioData.ts` | **데이터** — 논문 결과, 프로젝트, 학력, 스킬, 자격증 |
+| `src/data/portfolioData.ts` | **데이터** — 인적사항, 프로젝트, 학력, 기술, 자격증 |
 
-문장을 고치고 싶으면 `siteContent.ts`, 항목을 추가·삭제하고 싶으면 `portfolioData.ts` 다.
+## 화면 순서
 
----
+신입 채용 담당자가 읽는 순서에 맞춰 배치했다.
 
-## siteContent.ts — 어느 키가 어느 화면인가
+```
+Hero (누구인가)  →  학력  →  기술 스택  →  자격증  →  프로젝트  →  연락처
+```
 
-| 키 | 화면 위치 |
+순서를 바꾸려면 `src/App.tsx` 의 `<main>` 안 컴포넌트 순서와
+`siteContent.ts` 의 `header.nav` 배열을 함께 고친다.
+
+## 자주 고치는 것
+
+| 고치고 싶은 것 | 위치 |
 |---|---|
-| `header.affiliation` | 상단 헤더, 이름 아래 작은 글씨 |
-| `header.nav[]` | 상단 가운데 메뉴. `label` 이 표시되는 글자, `href` 가 이동할 섹션 |
-| `header.emailBtnShort` | 모바일에서 이메일 버튼에 뜨는 짧은 글자 |
-| `hero.degreeBadge` | 첫 화면 맨 위 검은 알약 배지 |
-| `hero.period` | 그 옆 회색 배지 (기간·학점) |
-| `hero.headline` | **가장 큰 글씨** — 직무 한 줄 |
-| `hero.tagline` | 헤드라인 바로 아래 회색 한 줄 |
-| `hero.bio` | 자기소개 문단 |
-| `hero.ctaPrimary` / `ctaSecondary` | 검은 버튼 / 흰 버튼 글자 |
-| `research.heading` | 논문 섹션 큰 제목 |
-| `research.narrativeHypothesis` | 논문 섹션 첫 문단 (왜 이 가설인가) |
-| `research.narrativeWork` | 논문 섹션 둘째 문단 (무엇을 했나) |
-| `projects.heading` / `subheading` | 프로젝트 섹션 제목·소개 |
-| `projects.stackChip` | 프로젝트 섹션 오른쪽 위 작은 칩 |
-| `interests.items[]` | 관심분야 카드. `keyword` 가 제목, `detail` 이 설명 |
-| `skills.heading` / `subheading` | 역량 섹션 제목·소개 |
-| `education.heading` | 학력 섹션 제목 |
-| `certifications.heading` | 자격증 섹션 제목 |
+| 이름·직함·한 줄 소개·이메일 | `portfolioData.ts` → `PERSONAL_INFO` |
+| Hero 오른쪽 "한눈 요약" 4줄 | `Hero.tsx` → `QUICK_FACTS` |
+| "2026년 하반기 입사 가능" 배지 | `siteContent.ts` → `hero.availability` |
+| 학력 카드 | `portfolioData.ts` → `EDUCATION_LIST` |
+| 기술 스택 | `portfolioData.ts` → `SKILL_CATEGORIES` |
+| 자격증 | `portfolioData.ts` → `CERTIFICATIONS` |
+| 프로젝트 | `portfolioData.ts` → `PROJECTS_DATA` |
+| 섹션 제목·부제 | `siteContent.ts` → `education` / `skills` / `certifications` / `projects` |
 
-### 문단에서 쓸 수 있는 서식
+## 프로젝트 카드 한 장의 구조
 
-`research.narrative*` 와 프로젝트 설명에서는 두 가지만 쓸 수 있다.
+카드는 **왜 했는지**를 가장 먼저 보여준다. 방법과 도구는 그 뒤에 온다.
 
-```
-**이렇게 쓰면 굵게**
-`이렇게 쓰면 코드 스타일`
-```
+| 필드 | 화면에서의 자리 | 쓰는 법 |
+|---|---|---|
+| `kind` | 좌상단 검은 뱃지 | `thesis` / `analysis` / `service` |
+| `period`, `role` | 뱃지 옆 회색 글씨 | 기간과 맡은 역할 |
+| `title` | 큰 제목 | 결과가 드러나게 쓴다 (예: "부도율 24% → 3.4%") |
+| `question` | 세로줄 그어진 회색 상자 — **가장 먼저 읽히는 자리** | 무슨 문제를 풀려고 했는지 한두 문장 |
+| `summary` | 상자 아래 본문 | 무엇을 했고 무엇이 나왔는지 2~3줄 |
+| `metrics` | 숫자 카드 줄 | `highlight: true` 를 준 하나만 초록색이 된다 |
+| `keyPoints` | 2단 카드 | 막혔던 지점과 푼 방법. 카드당 2개까지 |
+| `stack` | 맨 아래 회색 칩 | 사용한 도구 |
+| `links` | 우상단 버튼 | `kind: 'demo'` 는 검은 버튼, `'repo'` 는 회색 버튼 |
+| `draft` | 노란 "내용 정리 중" 뱃지 | 아직 안 채운 카드에만 `true` |
 
-HTML 태그는 쓸 수 없다.
+`question`, `summary`, `keyPoints[].desc` 에는 `**굵게**` 와 `` `코드` `` 표기를 쓸 수 있다.
 
----
+## 지켜야 할 것
 
-## portfolioData.ts — 항목을 늘리거나 줄일 때
-
-### 프로젝트 추가
-
-`PROJECTS_DATA` 배열에 객체를 하나 더 넣으면 카드가 자동으로 생긴다.
-
-```ts
-{
-  id: 'my-project',            // 고유값. 영문 소문자와 하이픈
-  title: '프로젝트 이름',
-  subtitle: '한 줄 설명',
-  summary: '카드 상단에 들어갈 개요 문단',
-  badges: [                    // 제목 위 작은 칩들
-    { label: 'Python', tone: 'dark' },        // dark | emerald | indigo | muted
-  ],
-  links: [
-    { label: 'GitHub Repo', url: 'https://...', kind: 'repo' },   // repo | demo
-  ],
-  keyPoints: [                 // 2개 권장 (2열 배치)
-    { icon: 'shield', title: '소제목', desc: '설명. **굵게** 가능' },
-    // icon: shield | refresh | check | git
-  ],
-}
-```
-
-> 프로젝트마다 다른 특수 UI(예금토큰의 revert 데모, 연봉닥터의 데이터 출처 다이어그램)는
-> `ProjectsSection.tsx` 의 `EXTRAS` 에 `id` 로 연결돼 있다. 새 프로젝트에 특수 UI가 없으면
-> 아무것도 안 해도 되고, 카드 껍데기만 그려진다.
-
-### 논문 수치 수정
-
-`THESIS_DATA.regressions[]` 각 객체가 "SELECT ECONOMETRIC SPECIFICATION" 목록의 한 줄이다.
-
-| 필드 | 화면 |
-|---|---|
-| `model` | 모형 이름 |
-| `alpha` | 검은 칩에 뜨는 결과값 |
-| `tStat` | t값. **비유의해서 t값을 안 쓰려면 이 줄을 통째로 지운다** |
-| `significance` | `***` / `**` / `*` / `n.s.` |
-| `obs` | 표본 수 |
-| `spec` | 오른쪽 "SPECIFICATION" 타일 |
-| `description` | 아래 상세 설명 |
-
-### 학력·스킬·자격증
-
-`EDUCATION_LIST`, `SKILL_CATEGORIES`, `CERTIFICATIONS` 배열에 객체를 넣거나 뺀다.
-스킬의 `level` 은 `'Expert' | 'Advanced' | 'Proficient'` 셋 중 하나만 쓸 수 있다.
-
----
-
-## 자주 하는 실수
-
-| 증상 | 원인 |
-|---|---|
-| 문구를 고쳤는데 화면이 그대로 | 개발 서버를 껐다 켜거나, `npm run build` 를 다시 돌린다 |
-| 빌드가 `',' expected` 로 실패 | 문자열 안의 작은따옴표(`'`)를 `\'` 로 이스케이프하지 않았다 |
-| 배지 색이 안 먹음 | `tone` 값이 `dark/emerald/indigo/muted` 가 아니다 |
-| 아이콘이 안 나옴 | `icon` 값이 `shield/refresh/check/git` 가 아니다 |
-
----
-
-## 배포
-
-`main` 에 푸시하면 Netlify 가 자동 배포한다. 보통 30초 안에 반영된다.
-
-```bash
-npm run build && git add -A && git commit -m "docs: 문구 수정" && git push
-```
+- **모든 수치는 실제 분석 결과·커밋 기록과 일치해야 한다.** 확인할 수 없으면 쓰지 않는다.
+- 아직 확인하지 못한 프로젝트는 지우지 말고 `draft: true` 로 두어 빈자리를 드러낸다.
+- 기술 스택에는 실제로 써 본 것만 적는다.

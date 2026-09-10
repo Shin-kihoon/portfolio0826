@@ -1,7 +1,7 @@
 # 신기훈 포트폴리오 사이트
 
-서울대학교 경영대학원 재무금융 석사 신기훈의 개인 포트폴리오.
-석사학위논문(배당 정밀도와 미래 수익성)과 연구·개발 프로젝트를 소개한다.
+데이터 분석가 신입 지원용 개인 포트폴리오 사이트.
+학력·기술·자격증을 먼저 보여주고, 프로젝트 4건을 아래에 둔다.
 
 **공개 URL** → https://shinkihoonportfolio.netlify.app/
 
@@ -9,7 +9,7 @@
 
 ```bash
 npm install
-npm run dev        # 개발 서버 (http://localhost:5173)
+npm run dev        # 개발 서버 (http://localhost:3000)
 npm run build      # 프로덕션 빌드 → dist/
 npm run preview    # 빌드 결과 미리보기
 ```
@@ -23,7 +23,6 @@ Node 18 이상이 필요하다.
 | 빌드 | Vite | 정적 단일 페이지에 충분하고 빌드가 빠르다 |
 | 프레임워크 | React 19 + TypeScript | 섹션을 컴포넌트로 나누고 콘텐츠 타입을 강제하기 위해 |
 | 스타일 | Tailwind CSS | 토큰을 클래스로 직접 다루기 위해 |
-| 모션 | motion (framer-motion) | 스크롤 진입 애니메이션 |
 | 아이콘 | lucide-react | |
 | 배포 | Netlify | GitHub 연동 자동 배포 |
 

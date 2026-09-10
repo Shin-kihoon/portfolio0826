@@ -1,87 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { ArrowUp } from 'lucide-react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { ResearchSection } from './components/ResearchSection';
-import { ProjectsSection } from './components/ProjectsSection';
 import { EducationSection } from './components/EducationSection';
 import { SkillsSection } from './components/SkillsSection';
-import { InterestsSection } from './components/InterestsSection';
 import { CertificationsSection } from './components/CertificationsSection';
+import { ProjectsSection } from './components/ProjectsSection';
 import { ContactSection } from './components/ContactSection';
-import { CitationModal } from './components/CitationModal';
-import { DesignSystemModal } from './components/DesignSystemModal';
-import { ArrowUp, Layers } from 'lucide-react';
 
 export default function App() {
-  const [isDesignSystemOpen, setIsDesignSystemOpen] = useState(false);
-  const [isCitationOpen, setIsCitationOpen] = useState(false);
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 600);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900 flex flex-col selection:bg-zinc-900 selection:text-white">
-      {/* Top Sticky Header */}
-      <Header
-        onOpenDesignSystem={() => setIsDesignSystemOpen(true)}
-        onOpenCitation={() => setIsCitationOpen(true)}
-      />
+      <Header />
 
-      {/* Main Single Page Content */}
+      {/* 신입 채용 담당자가 보는 순서: 누구인가 → 학력 → 기술 → 자격증 → 프로젝트 */}
       <main className="grow">
         <Hero onScrollToSection={scrollToSection} />
-        <ResearchSection />
-        <ProjectsSection />
         <EducationSection />
         <SkillsSection />
-        <InterestsSection />
         <CertificationsSection />
+        <ProjectsSection />
       </main>
 
-      {/* Footer & Contact */}
       <ContactSection />
 
-      {/* Floating Design Spec & Top Button */}
-      <div className="fixed bottom-5 right-5 z-30 flex items-center gap-2">
-        <button
-          id="floating-design-spec-btn"
-          onClick={() => setIsDesignSystemOpen(true)}
-          className="flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-mono-code font-bold bg-zinc-900 text-zinc-50 hover:bg-zinc-800 shadow-lg border border-zinc-700 transition-all cursor-pointer hover:scale-105 active:scale-95"
-          title="설계 시스템 명세표 및 변경점"
-        >
-          <Layers className="w-3.5 h-3.5 text-emerald-400" />
-          <span className="hidden sm:inline">설계 시스템 명세</span>
-        </button>
-
+      {showTop && (
         <button
           id="floating-scroll-top-btn"
-          onClick={scrollToTop}
-          className="p-2.5 rounded-full bg-white text-zinc-800 hover:bg-zinc-100 shadow-md border border-zinc-200 transition-all cursor-pointer hover:scale-105 active:scale-95"
-          title="맨 위로 이동"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-5 right-5 z-30 p-2.5 rounded-full bg-white text-zinc-800 hover:bg-zinc-100 shadow-md border border-zinc-200 transition-all cursor-pointer hover:scale-105 active:scale-95"
+          title="맨 위로"
         >
           <ArrowUp className="w-4 h-4" />
         </button>
-      </div>
-
-      {/* Citation Modal */}
-      <CitationModal
-        isOpen={isCitationOpen}
-        onClose={() => setIsCitationOpen(false)}
-      />
-
-      {/* Design System Summary Modal */}
-      <DesignSystemModal
-        isOpen={isDesignSystemOpen}
-        onClose={() => setIsDesignSystemOpen(false)}
-      />
+      )}
     </div>
   );
 }
