@@ -5,7 +5,7 @@
 
 export const content = {
   header: {
-    affiliation: '서울대 경영대학원 재무금융 석사',
+    affiliation: '서울대 대학원 경영학과 재무금융 석사',
     nav: [
       { id: 'nav-link-education', href: '#education', label: '학력' },
       { id: 'nav-link-skills', href: '#skills', label: '기술' },
@@ -26,7 +26,7 @@ export const content = {
   education: {
     eyebrow: 'Education',
     heading: '학력',
-    subheading: '재무금융 석사 · 경제학/경영학 복수전공',
+    subheading: '재무금융 석사 · 경제학사/경영학사 다전공',
   },
 
   skills: {

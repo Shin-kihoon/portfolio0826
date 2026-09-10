@@ -9,7 +9,7 @@ export const PERSONAL_INFO = {
   email: 'kenny1008@snu.ac.kr',
   github: 'https://github.com/Shin-kihoon',
   githubHandle: 'Shin-kihoon',
-  affiliation: '서울대학교 경영대학원 재무금융 석사',
+  affiliation: '서울대학교 대학원 경영학과 재무금융 석사',
   /** 두 문장. 무엇을 다뤘고 무엇을 할 수 있는지. */
   bio: '금융 원자료 수집·정제부터 가설 검정까지 직접 수행. 상장기업 19,519 기업-연도 패널과 대출 111만 건을 Python으로 전처리·모형 추정·결과 검증.',
 };
@@ -134,24 +134,29 @@ export const PROJECTS_DATA: ProjectData[] = [
 
 export const EDUCATION_LIST: EducationData[] = [
   {
-    institution: '서울대학교 경영대학원',
+    institution: '서울대학교 대학원 경영학과',
     degree: '경영학 석사',
-    major: '재무금융 전공',
+    major: '재무금융',
     period: '2024.09 ~ 2026.08',
-    gpa: '3.92 / 4.3',
+    gpa: '3.83 / 4.3',
+    gpaNote: '이수 24학점 · 백분환산 95.3',
     status: '졸업예정',
     details: [
       '석사학위논문: 한국 상장기업의 배당 정밀도와 주식수익률',
-      '이수: 고급실증재무론, 자산가격결정론, 금융계량경제학, 빅데이터재무분석',
+      '주요 이수: 재무연구방법론 · 계량경제학연구 · 데이터사이언스의 원리와 응용 · 행태주의 재무론 · 투자론연구 · 포트폴리오관리연구',
     ],
   },
   {
-    institution: '건국대학교',
-    degree: '경제학사 · 경영학사 (복수전공)',
-    major: '경제학 / 경영학',
+    institution: '건국대학교 사회과학대학',
+    degree: '경제학사 · 경영학사 (다전공)',
+    major: '경제학과 · 경영학과',
     period: '2018.03 ~ 2024.02',
-    gpa: '4.18 / 4.5',
-    gpaNote: '경제 전공 4.25 · 경영 전공 4.46',
+    gpa: '4.17 / 4.5',
+    gpaNote: '전공 4.25 · 다전공 4.46',
+    details: [
+      "Dean's List 4회 (2022-1 · 2022-2 · 2023-1 · 2023-2)",
+      '취득학점 147 · 백분율 96.7',
+    ],
   },
   {
     institution: '서울대학교 빅데이터 핀테크 전문가과정 (13기)',
