@@ -32,26 +32,26 @@ export const content = {
   skills: {
     eyebrow: 'Skills',
     heading: '기술 스택',
-    subheading: '논문과 프로젝트에서 실제로 사용한 것만 적었습니다',
+    subheading: '논문·프로젝트에서 실제 사용한 스택',
   },
 
   certifications: {
     eyebrow: 'Certifications',
     heading: '자격증 및 어학',
-    subheading: '금융투자 전문인력 자격 및 국가공인 데이터 분석 자격',
+    subheading: '금융투자 전문인력 자격 · 국가공인 데이터 분석 자격',
   },
 
   projects: {
     eyebrow: 'Projects',
     heading: '프로젝트',
-    subheading: '데이터를 직접 모아 가설을 검정하거나 서비스로 만든 작업입니다',
+    subheading: '학위논문 1건 · 데이터 분석 2건 · 웹 서비스 1건',
     draftLabel: '내용 정리 중',
   },
 
   contact: {
     eyebrow: 'Contact',
     heading: '연락 주세요',
-    body: '데이터 분석가 신입 포지션을 찾고 있습니다. 이메일로 연락 주시면 이력서와 논문 원문을 보내드리겠습니다.',
+    body: '데이터 분석가 신입 포지션 지원 중. 이메일 주시면 이력서와 논문 원문 회신.',
   },
 } as const;
 

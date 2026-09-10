@@ -29,10 +29,8 @@ export interface ProjectData {
   subtitle: string;
   period: string;
   role: string;
-  /** 왜 이 프로젝트를 했는지. 한두 문장으로 문제의식만. */
+  /** 왜 했는지. 한 줄. 설명하지 말고 문제만 적는다. */
   question: string;
-  /** 무엇을 했고 무엇이 나왔는지. 2~3줄. */
-  summary: string;
   stack: string[];
   metrics: ProjectMetric[];
   keyPoints: ProjectKeyPoint[];

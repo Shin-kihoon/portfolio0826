@@ -47,7 +47,7 @@ export const ProjectsSection: React.FC = () => (
           <article
             key={project.id}
             id={`project-${project.id}`}
-            className="rounded-2xl border border-zinc-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs"
+            className="rounded-2xl border border-zinc-200 bg-white p-6 sm:p-7 space-y-5 shadow-xs"
           >
             {/* 제목줄 */}
             <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
@@ -98,16 +98,10 @@ export const ProjectsSection: React.FC = () => (
               )}
             </div>
 
-            {/* 왜 했는가 — 카드에서 가장 먼저 읽히는 자리 */}
-            <div className="rounded-xl bg-zinc-50 border-l-2 border-zinc-900 px-5 py-4 space-y-1.5">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 font-mono-code">
-                풀려던 문제
-              </div>
-              <p className="text-sm text-zinc-800 leading-relaxed">{project.question}</p>
-            </div>
-
-            {/* 무엇을 했고 무엇이 나왔는가 */}
-            <p className="text-sm text-zinc-600 leading-relaxed max-w-3xl">{project.summary}</p>
+            {/* 왜 했는가 — 한 줄. 설명은 붙이지 않는다. */}
+            <p className="border-l-2 border-zinc-900 pl-3 text-sm font-medium text-zinc-800">
+              {project.question}
+            </p>
 
             {/* 결과 숫자 */}
             {project.metrics.length > 0 && (
