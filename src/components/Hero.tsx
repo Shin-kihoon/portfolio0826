@@ -9,7 +9,7 @@ interface HeroProps {
 
 /** 이력서 상단처럼 읽히는 한눈 요약. 각 줄은 아래 섹션에서 다시 증명된다. */
 const QUICK_FACTS: { label: string; value: string }[] = [
-  { label: '학력', value: '서울대 대학원 경영학과 재무금융 석사 (2026.08 졸업예정)' },
+  { label: '학력', value: '서울대 대학원 경영학과 재무금융 석사 (2026.08 졸업)' },
   { label: '학부', value: '건국대 경제학사·경영학사 다전공 (GPA 4.17 / 4.5)' },
   { label: '자격증', value: '빅데이터분석기사 · SQLD · 금융투자분석사 · 투자자산운용사' },
   { label: '주력 도구', value: 'Python (pandas, statsmodels, scikit-learn) · SQL' },

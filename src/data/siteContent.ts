@@ -17,7 +17,7 @@ export const content = {
   },
 
   hero: {
-    availability: '2026년 하반기 입사 가능',
+    availability: '2026.08 석사 졸업 · 즉시 입사 가능',
     ctaPrimary: '프로젝트 보기',
     ctaSecondary: '기술 스택',
     emailLabel: 'Email',

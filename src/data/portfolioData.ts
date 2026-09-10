@@ -135,19 +135,19 @@ export const PROJECTS_DATA: ProjectData[] = [
 export const EDUCATION_LIST: EducationData[] = [
   {
     institution: '서울대학교 대학원 경영학과',
-    degree: '경영학 석사',
+    degree: '경영학석사',
     major: '재무금융',
     period: '2024.09 ~ 2026.08',
-    gpa: '3.83 / 4.3',
-    gpaNote: '이수 24학점 · 백분환산 95.3',
-    status: '졸업예정',
+    gpa: '3.92 / 4.3',
+    gpaNote: '이수 27학점 · 백분환산 96.2',
+    status: '졸업',
     details: [
       '석사학위논문: 한국 상장기업의 배당 정밀도와 주식수익률',
-      '주요 이수: 재무연구방법론 · 계량경제학연구 · 데이터사이언스의 원리와 응용 · 행태주의 재무론 · 투자론연구 · 포트폴리오관리연구',
+      '주요 이수: 재무연구방법론 · 계량경제학연구 · 데이터사이언스의 원리와 응용 · 행태주의 재무론 · 투자론연구 · 포트폴리오관리연구 · 투자관리세미나',
     ],
   },
   {
-    institution: '건국대학교 사회과학대학',
+    institution: '건국대학교',
     degree: '경제학사 · 경영학사 (다전공)',
     major: '경제학과 · 경영학과',
     period: '2018.03 ~ 2024.02',
