@@ -11,7 +11,7 @@ export const PERSONAL_INFO = {
   githubHandle: 'Shin-kihoon',
   affiliation: '서울대학교 대학원 경영학과 재무금융 석사',
   /** 두 문장. 무엇을 다뤘고 무엇을 할 수 있는지. */
-  bio: '금융 원자료 수집·정제부터 가설 검정까지 직접 수행. 상장기업 19,519 기업-연도 패널과 대출 111만 건을 Python으로 전처리·모형 추정·결과 검증.',
+  bio: '금융 원자료 수집·정제부터 가설 검정까지 직접 수행. 상장기업 19,271 기업-연도 패널과 대출 111만 건을 Python으로 전처리·모형 추정·결과 검증.',
 };
 
 /** 카드는 짧게. 문제 한 줄 → 숫자 → 막힌 지점 → 도구. 설명하지 않는다. */
@@ -19,28 +19,28 @@ export const PROJECTS_DATA: ProjectData[] = [
   {
     id: 'dividend-precision',
     kind: 'thesis',
-    title: '배당금 끝자리로 기업의 미래 수익성 예측',
-    subtitle: '상장기업 19,519 기업-연도 패널 직접 구축',
+    title: '배당금을 둥글게 끊지 않는 기업이 더 잘한다',
+    subtitle: '석사학위논문 「배당금 금액 집중현상과 기업성과」 · 19,271 기업-연도',
     period: '2024.09 ~ 2026.08',
     role: '단독 연구',
-    question: '외부에서 관측 가능한 경영진 무관심 신호 탐색',
+    question: '배당금 끝자리로 경영진의 의사결정 태도를 읽을 수 있는가',
     stack: ['Python', 'pandas', 'statsmodels', 'KIS-Value'],
     metrics: [
-      { label: '분석 표본', value: '19,519', note: '기업-연도' },
-      { label: 'FF5 알파', value: '+9.98bp/월', note: 't = 3.38', highlight: true },
-      { label: '매칭 재검증', value: '615쌍', note: '+10.88bp/월 (t = 2.61)' },
-      { label: '차기 ROA 예측', value: 't = 2.62', note: '기업·연도 고정효과' },
+      { label: '분석 표본', value: '19,271', note: '기업-연도 · 2000~2025' },
+      { label: '월간 초과수익', value: '+9.65bp', note: 'FF5 알파 (t = 3.22)', highlight: true },
+      { label: '매칭 재검증', value: '583쌍', note: '+11.26bp/월 (t = 2.80)' },
+      { label: '다음 해 수익성', value: '+0.68%p', note: '산업조정 ROA (t = 4.19)' },
     ],
     keyPoints: [
       {
         icon: 'search',
-        title: '계수 부호 반전 원인 규명',
-        desc: '통제변수 투입 시 계수 부호 반전 → 원인을 **`ln(DPS)`** 로 특정, 모형 사양 수정',
+        title: '끝자리에 숨은 신호',
+        desc: '국내 배당금은 끝자리 0·5에 **98%가 몰려 있다**. 이 관성을 따르지 않는 기업을 골라내 이후 성과를 추적',
       },
       {
         icon: 'check',
-        title: '강건성 확인',
-        desc: '615쌍 매칭 표본에서 결과 유지, 위약 대조군은 전 항목 비유의',
+        title: '위약검정으로 확인',
+        desc: '경영진이 직접 정하지 않는 **EPS 끝자리로 바꾸면 효과가 사라진다** — 배당 결정에 특유한 행동',
       },
     ],
     links: [],
@@ -199,7 +199,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     category: '데이터 처리',
     description: '원자료를 분석 가능한 형태로',
     skills: [
-      { name: '패널 데이터 구축', note: '19,519 기업-연도 · 대출 110만 건 규모' },
+      { name: '패널 데이터 구축', note: '19,271 기업-연도 · 대출 111만 건 규모' },
       { name: '전처리', note: '결측 처리, 윈저라이징, 이상치 점검' },
       { name: '데이터 누출 차단', note: '시점 기준 분할, 학습 표본 내 전처리 학습' },
       { name: 'API 수집', note: 'OECD SDMX, FRED, Yahoo Finance' },
