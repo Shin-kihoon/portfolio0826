@@ -161,6 +161,58 @@ export const ProjectsSection: React.FC = () => (
               </div>
             )}
 
+            {/* 결과물 화면 — 말로 쓴 것을 눈으로 확인시킨다 */}
+            {project.shots && project.shots.length > 0 && (
+              <div
+                className={`grid gap-4 ${
+                  project.shots.length > 1 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'
+                }`}
+              >
+                {project.shots.map((shot) => (
+                  <figure
+                    key={shot.src}
+                    className="rounded-xl border border-zinc-200 bg-white overflow-hidden"
+                  >
+                    <img
+                      src={shot.src}
+                      alt={shot.caption}
+                      loading="lazy"
+                      className="w-full block border-b border-zinc-100"
+                    />
+                    <figcaption className="px-3.5 py-2.5 text-[11px] leading-snug text-zinc-600">
+                      {shot.caption}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            )}
+
+            {/* 내가 맡은 범위와 아쉬운 점 */}
+            {(project.contribution || project.limitation) && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {project.contribution && (
+                  <div className="p-3.5 rounded-xl bg-zinc-50 border border-zinc-200/80 space-y-1">
+                    <div className="text-[10px] font-mono-code uppercase tracking-wider text-zinc-500">
+                      내가 맡은 범위
+                    </div>
+                    <p className="text-xs text-zinc-700 leading-relaxed">
+                      {renderRich(project.contribution)}
+                    </p>
+                  </div>
+                )}
+                {project.limitation && (
+                  <div className="p-3.5 rounded-xl bg-amber-50/60 border border-amber-200/70 space-y-1">
+                    <div className="text-[10px] font-mono-code uppercase tracking-wider text-amber-700">
+                      아쉬운 점
+                    </div>
+                    <p className="text-xs text-amber-900/80 leading-relaxed">
+                      {renderRich(project.limitation)}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* 사용 도구 */}
             {project.stack.length > 0 && (
               <div className="flex flex-wrap items-center gap-1.5 pt-1 border-t border-zinc-100">

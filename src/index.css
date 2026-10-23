@@ -49,4 +49,10 @@
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
   }
+  /* 화면 캡처는 종이에서 한 장을 통째로 먹는다. 위쪽 핵심만 남기고 높이를 묶는다. */
+  figure img {
+    max-height: 88mm;
+    object-fit: cover;
+    object-position: top;
+  }
 }

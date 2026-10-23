@@ -46,6 +46,8 @@ export const PROJECTS_DATA: ProjectData[] = [
         desc: '경영진이 직접 정하지 않는 **EPS 끝자리로 바꾸면 효과가 사라진다** — 배당 결정에 특유한 행동',
       },
     ],
+    limitation:
+      '매칭 후 표본이 583쌍으로 줄어 검정력이 떨어진다. 전체 표본 회귀와 매칭 결과를 함께 제시해 결론이 한 설계에만 기대지 않음을 보였다.',
     links: [],
   },
   {
@@ -75,6 +77,8 @@ export const PROJECTS_DATA: ProjectData[] = [
         desc: '후보 수 · 이름점수 순위 · 1등과의 격차를 추가. 후보를 하나씩 독립 채점하는 규칙이 표현하지 못하던 부분',
       },
     ],
+    limitation:
+      '정답 집합이 CRA 보고 은행 605곳으로 한정돼 있어, 보고 의무가 없는 소형 기관까지 같은 정확도가 나올지는 확인하지 못했다.',
     links: [
       { label: '코드 · 결과', url: 'https://github.com/Shin-kihoon/ppp-bank-matching', kind: 'repo' },
     ],
@@ -106,6 +110,8 @@ export const PROJECTS_DATA: ProjectData[] = [
         desc: '학습 ~2016 / 검증 2017 / 평가 2018 시점 분할, 전처리도 **학습 표본 내에서만** 적합',
       },
     ],
+    limitation:
+      'LendingClub은 공개 데이터라 비슷한 분석이 많다. 차별점은 모형이 아니라 이자율·신용등급을 제외한 설계에 있다고 본다.',
     links: [],
   },
   {
@@ -146,8 +152,25 @@ export const PROJECTS_DATA: ProjectData[] = [
         desc: '보호 브랜치 정책상 봇 PR에는 필수 검사가 실행되지 않아 병합 조건이 영원히 충족되지 않았다. 같은 검사를 갱신 잡에서 수행한 뒤 **커밋 상태 API로 결과를 기록**해 해결',
       },
     ],
+    shots: [
+      {
+        src: 'shot-yeonbong.png',
+        caption:
+          '진단 결과 화면. 내년 예상 연봉과 개인 지출 비중으로 다시 계산한 물가 유지선을 나란히 두고, 아래에 공식 물가 시계열을 함께 보여준다.',
+      },
+      {
+        src: 'shot-ci.png',
+        caption:
+          '주 1회 자동 갱신 워크플로 실행 기록. 수집·정제·검증을 거쳐 통과한 경우에만 데이터 갱신 PR이 열린다.',
+      },
+    ],
+    contribution:
+      '진단 로직과 데이터 파이프라인, 품질 검증을 맡았다. 팀 6인 중 **기여 커밋 56**, 지표 체계 재설계와 CI 검증 구성은 직접 수행.',
+    limitation:
+      'Tableau·Looker 같은 BI 도구 대신 차트를 직접 구현했다. 검증 대상도 외부 수집 데이터였고, 사용자 행동 로그를 기획 단계부터 정의해 보지는 못했다.',
     links: [
       { label: '서비스 열기', url: 'https://fintech-team-final.vercel.app/', kind: 'demo' },
+      { label: '팀 저장소', url: 'https://github.com/SNU-Project/fintech-team-final', kind: 'repo' },
       { label: '코드 · 워크플로', url: 'https://github.com/Shin-kihoon/yeonbong-doctor', kind: 'repo' },
     ],
   },
@@ -177,6 +200,9 @@ export const PROJECTS_DATA: ProjectData[] = [
         desc: '프롬프트를 `prompts/*.md`로 분리하고, 호출 비용을 고려해 **기본은 표본 실행 · 전체 실행은 옵션**으로 나눔',
       },
     ],
+    contribution:
+      '팀 6인(데이터·프롬프트·개발 3파트) 중 **개발 담당 2인 중 1인**. 검색·장바구니·주문 처리와 검증 러너를 맡았다.',
+    limitation: '판정은 사람이 직접 적는 방식이라 자동 채점까지는 가지 못했다. 수업 과제 규모의 프로젝트다.',
     links: [
       { label: '코드 · 검증 러너', url: 'https://github.com/Shin-kihoon/moki-kiosk', kind: 'repo' },
     ],
