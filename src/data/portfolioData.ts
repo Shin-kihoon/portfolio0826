@@ -11,7 +11,7 @@ export const PERSONAL_INFO = {
   githubHandle: 'Shin-kihoon',
   affiliation: '서울대학교 대학원 경영학과 재무금융 석사',
   /** 두 문장. 무엇을 다뤘고 무엇을 할 수 있는지. */
-  bio: '금융 원자료 수집·정제부터 가설 검정까지 직접 수행. 상장기업 19,271 기업-연도 패널과 대출 111만 건을 Python으로 전처리·모형 추정·결과 검증.',
+  bio: '금융 원자료 수집·정제부터 가설 검정까지 직접 수행. 상장기업 19,271 기업-연도 패널과 대출 111만 건을 Python으로 전처리·모형 추정·결과 검증. 숫자가 맞는지 자동으로 확인하는 장치를 만들어 두는 편.',
 };
 
 /** 카드는 짧게. 문제 한 줄 → 숫자 → 막힌 지점 → 도구. 설명하지 않는다. */
@@ -111,27 +111,72 @@ export const PROJECTS_DATA: ProjectData[] = [
     title: '연봉닥터 — 내 지출 기준 물가로 연봉 인상률 진단',
     subtitle: '팀 프로젝트',
     period: '2026.08',
-    role: '진단 로직 · 데이터 파이프라인',
+    role: '진단 로직 · 데이터 파이프라인 · 품질 검증',
     question: '전국 평균이 아닌 개인 지출 기준 물가 산출',
     stack: ['Python', 'JavaScript', 'GitHub Actions', 'OECD SDMX API'],
     metrics: [
       { label: '물가 분류', value: 'COICOP 12', note: '지출 비중 재가중' },
       { label: '데이터 출처', value: '3곳', note: 'OECD · Yahoo Finance · Frankfurter' },
+      { label: '자동 품질 검사', value: '4종', note: '관측치 · 연속성 · 이상치 · 수신', highlight: true },
+      { label: '가짜 데이터 제거', value: '3건', note: '난수 · 사인파 생성 코드' },
       { label: '기여 커밋', value: '56', note: '진단 로직 · 파이프라인' },
     ],
     keyPoints: [
       {
         icon: 'check',
-        title: '진단 로직 오류 수정',
-        desc: '적자 상태에서 "양호" 판정 발생 → **물가 축과 수지 축 분리**',
+        title: '지표 정의 결함을 찾아 축을 나눔',
+        desc: '적자 상태에서 "양호" 판정 발생. 원인은 **지표 하나로 물가와 수지를 동시에 재던 구조** → 물가 축과 수지 축 분리',
+      },
+      {
+        icon: 'search',
+        title: '검증을 통과해야만 데이터가 배포된다',
+        desc: '관측치 24개월 · **월 시계열 연속성** · CAGR/변동성/MDD 이상치 범위 · 물가 12품목 수신을 자동 검사하고, 하나라도 걸리면 갱신을 중단. 원/달러 2017-09 **단일 오류 틱**(전월 대비 0.0001배 후 복귀)을 탐지해 제외하고 사유를 `meta.json`에 기록',
       },
       {
         icon: 'git',
-        title: '자동 갱신 3일 중단 복구',
-        desc: '봇 PR 워크플로 미실행으로 검사 미통과 → 커밋 상태 API로 우회',
+        title: '데이터를 지어내는 코드를 CI에서 차단',
+        desc: '팀 프로토타입의 난수·사인파 가짜 데이터 3건을 걷어내고, 재유입을 막는 가드를 PR 검사에 추가. **수집 실패 시 값을 만들지 않고 항목을 제외한 뒤 사유를 남긴다**',
+      },
+      {
+        icon: 'git',
+        title: '자동 갱신 3일 중단 — 원인 추적과 복구',
+        desc: '보호 브랜치 정책상 봇 PR에는 필수 검사가 실행되지 않아 병합 조건이 영원히 충족되지 않았다. 같은 검사를 갱신 잡에서 수행한 뒤 **커밋 상태 API로 결과를 기록**해 해결',
       },
     ],
-    links: [{ label: '서비스 열기', url: 'https://fintech-team-final.vercel.app/', kind: 'demo' }],
+    links: [
+      { label: '서비스 열기', url: 'https://fintech-team-final.vercel.app/', kind: 'demo' },
+      { label: '코드 · 워크플로', url: 'https://github.com/Shin-kihoon/yeonbong-doctor', kind: 'repo' },
+    ],
+  },
+  {
+    id: 'moki-kiosk',
+    kind: 'service',
+    title: '모키 키오스크 — 바뀔 때마다 품질을 다시 재는 장치',
+    subtitle: 'RAG 주문 키오스크 · 서울대 KDT 핀테크 AI 13기 4조',
+    period: '2026.10',
+    role: '개발 담당 · 검증 체계',
+    question: '프롬프트·데이터를 고칠 때마다 답변 품질이 어떻게 변하는지 추적',
+    stack: ['Python', 'Streamlit', 'FAISS', 'OpenAI API'],
+    metrics: [
+      { label: '검증 질문', value: '47개', note: '데이터팀 작성 · 일괄 실행', highlight: true },
+      { label: '기록 항목', value: '5종', note: '질문 · 기대 · 검색 · 답변 · 장바구니' },
+      { label: '팀 구성', value: '6인 3파트', note: '데이터 · 프롬프트 · 개발' },
+    ],
+    keyPoints: [
+      {
+        icon: 'check',
+        title: '회귀 점검 러너',
+        desc: '검증 질문 47개를 앱에 돌려 **기대 처리와 실제 답변을 한 표로** 남긴다. 실패 사례가 기록으로 남아 프롬프트 수정의 근거가 된다',
+      },
+      {
+        icon: 'git',
+        title: '비전공 팀원이 파이썬을 안 건드리게',
+        desc: '프롬프트를 `prompts/*.md`로 분리하고, 호출 비용을 고려해 **기본은 표본 실행 · 전체 실행은 옵션**으로 나눔',
+      },
+    ],
+    links: [
+      { label: '코드 · 검증 러너', url: 'https://github.com/Shin-kihoon/moki-kiosk', kind: 'repo' },
+    ],
   },
 ];
 
@@ -202,7 +247,9 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: '패널 데이터 구축', note: '19,271 기업-연도 · 대출 111만 건 규모' },
       { name: '전처리', note: '결측 처리, 윈저라이징, 이상치 점검' },
       { name: '데이터 누출 차단', note: '시점 기준 분할, 학습 표본 내 전처리 학습' },
-      { name: 'API 수집', note: 'OECD SDMX, FRED, Yahoo Finance' },
+      { name: 'API 수집', note: 'OECD SDMX, FRED, Yahoo Finance, Frankfurter, FDIC' },
+      { name: '정합성 검증 자동화', note: '시계열 연속성·이상치 범위 검사, 실패 시 배포 중단' },
+      { name: '파이프라인 운영', note: 'GitHub Actions 주기 갱신, 메타데이터·가정 기록, 장애 복구' },
     ],
   },
   {
