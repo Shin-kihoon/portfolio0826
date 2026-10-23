@@ -49,10 +49,12 @@
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
   }
-  /* 화면 캡처는 종이에서 한 장을 통째로 먹는다. 위쪽 핵심만 남기고 높이를 묶는다. */
+  /* 캡처와 그림은 종이에서 한 장을 통째로 먹는다. 높이를 묶되 잘라내지는 않는다 —
+     차트를 cover로 자르면 축과 눈금이 사라진다. */
   figure img {
-    max-height: 88mm;
-    object-fit: cover;
-    object-position: top;
+    max-height: 92mm;
+    width: auto;
+    margin: 0 auto;
+    object-fit: contain;
   }
 }

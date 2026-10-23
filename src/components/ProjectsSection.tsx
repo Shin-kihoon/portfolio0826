@@ -98,10 +98,15 @@ export const ProjectsSection: React.FC = () => (
               )}
             </div>
 
-            {/* 왜 했는가 — 한 줄. 설명은 붙이지 않는다. */}
-            <p className="border-l-2 border-zinc-900 pl-3 text-sm font-medium text-zinc-800">
-              {project.question}
-            </p>
+            {/* 왜 했는가 */}
+            <div className="border-l-2 border-zinc-900 pl-3.5 space-y-1">
+              <div className="text-[10px] font-mono-code uppercase tracking-wider text-zinc-500">
+                왜 했나
+              </div>
+              <p className="text-sm text-zinc-800 leading-relaxed">
+                {renderRich(project.question)}
+              </p>
+            </div>
 
             {/* 결과 숫자 */}
             {project.metrics.length > 0 && (
@@ -141,8 +146,31 @@ export const ProjectsSection: React.FC = () => (
               </div>
             )}
 
-            {/* 막혔던 지점과 푼 방법 */}
-            {project.keyPoints.length > 0 && (
+            {/* 그래서 무엇이 달라졌나 */}
+            {project.impact && (
+              <p className="text-sm text-zinc-800 leading-relaxed">
+                <span className="font-bold text-zinc-950">임팩트 </span>
+                {renderRich(project.impact)}
+              </p>
+            )}
+
+            {/* 러닝 포인트 — 다음에 쓸 수 있게 된 것 */}
+            {project.learnings.length > 0 && (
+              <div className="rounded-xl border border-zinc-900/10 bg-zinc-900/[0.03] p-4 space-y-2.5">
+                <div className="text-[10px] font-mono-code uppercase tracking-wider text-zinc-500">
+                  러닝 포인트
+                </div>
+                {project.learnings.map((line) => (
+                  <p key={line} className="flex gap-2 text-sm text-zinc-800 leading-relaxed">
+                    <span className="text-zinc-400 select-none">—</span>
+                    <span>{renderRich(line)}</span>
+                  </p>
+                ))}
+              </div>
+            )}
+
+            {/* 판단이 갈렸던 지점 (남겨 둘 것만) */}
+            {project.keyPoints && project.keyPoints.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {project.keyPoints.map((point) => (
                   <div

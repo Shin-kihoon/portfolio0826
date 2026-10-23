@@ -37,11 +37,15 @@ export interface ProjectData {
   subtitle: string;
   period: string;
   role: string;
-  /** 왜 했는지. 한 줄. 설명하지 말고 문제만 적는다. */
+  /** 왜 했는지. 두세 줄. 무엇이 불편했고 무엇을 확인하고 싶었는지. */
   question: string;
+  /** 그래서 무엇이 달라졌는지. 숫자 아래에 붙는 한 줄. */
+  impact: string;
+  /** 다음에 같은 일을 만났을 때 쓸 수 있게 된 것. 1~2개. */
+  learnings: string[];
   stack: string[];
   metrics: ProjectMetric[];
-  keyPoints: ProjectKeyPoint[];
+  keyPoints?: ProjectKeyPoint[];
   shots?: ProjectShot[];
   /** 팀 프로젝트에서 내가 맡은 범위. 혼자 한 일은 비워 둔다. */
   contribution?: string;
