@@ -145,12 +145,49 @@ export const PROJECTS_DATA: ProjectData[] = [
     links: [],
   },
   {
+    id: 'electricity-data',
+    kind: 'analysis',
+    title: '전기요금 국제 비교 자료 — 남이 바로 쓸 수 있게 만들기',
+    subtitle: '연구조교 · OECD/IEA 전기요금 원자료 정제와 비교 그래프',
+    period: '2026.04',
+    role: '연구조교 (RA)',
+    question:
+      '교수님이 전기요금 자료를 찾아 정리해 달라고 하셨다. 받아 보니 국가 하나에 시계열 하나가 아니라 **국가 × 가격항목 × 부문 × 통화기준 × 시점**의 조합으로 쌓인 long-format 패널이었다. 같은 한국 자료에도 가정용·산업용, 세전·세후, 자국통화·달러 기준이 전부 따로 들어 있어 한 시트로는 구조조차 보이지 않았다.',
+    impact:
+      '원본은 그대로 두고 분석용 파일을 따로 만들었다. 중복 라벨과 메타 컬럼을 걷어내고 시점에서 파생변수 4종을 만든 **cleaned master**, 조합별 관측치 수와 코드북을 담은 **8개 시트 점검용 워크북**, 가정용·산업용 각 7장씩 **총 14장의 비교 그래프**를 전달했다.',
+    learnings: [
+      '정제한 결과만 건네면 쓸 수가 없었다. **어디서 받았고 무엇을 왜 뺐는지**를 같이 적어야 받는 사람이 그대로 쓸 수 있다. 자료 출처와 변수 코드북, 제외 사유를 문서로 따로 만든 이유다.',
+    ],
+    stack: ['Python', 'pandas', 'matplotlib', 'OECD/IEA', 'KOSIS'],
+    metrics: [
+      { label: '비교 대상', value: '7개국', note: 'KOR · USA · JPN · DEU · FRA · GBR · ITA' },
+      { label: '기간', value: '2020 Q1 – 2025 Q4', note: '분기 자료' },
+      { label: '전달 그래프', value: '14장', note: '가정용 7 · 산업용 7', highlight: true },
+      { label: '점검용 워크북', value: '8개 시트', note: '코드북 · 조합별 관측치 수 등' },
+    ],
+    shots: [
+      {
+        src: 'shot-elec-level.png',
+        caption:
+          '주요국 가정용 전기요금 수준 비교(USD/MWh). 한국은 100~140 구간에 머무는 반면 2022년 독일·영국은 450까지 올랐다.',
+      },
+      {
+        src: 'shot-elec-index.png',
+        caption:
+          '2020년 1분기를 100으로 둔 지수 비교. 한국과 한국 제외 주요국 단순평균을 나란히 두어 인상 경로의 차이를 봤다.',
+      },
+    ],
+    limitation:
+      'OECD/IEA에 월별 자료도 있었지만 제공 국가가 제한적이고 한국 자료가 충분하지 않아 분기로 통일했다. 월별 흐름은 KOSIS 전기료 지수로 보완했는데, 이쪽은 실제 요금 수준이 아니라 가격지수라는 한계를 문서에 적어 두었다.',
+    links: [],
+  },
+  {
     id: 'bank-ppp-matching',
     kind: 'analysis',
     title: '이름이 다르게 적힌 은행 5,625곳을 같은 실체로 묶기',
     subtitle: '미국 PPP 대출기관을 감독기관 식별번호(RSSD ID)에 연결',
     period: '2025',
-    role: '연구 보조 (RA)',
+    role: '연구조교 (RA)',
     question:
       '자료마다 다르게 적힌 은행 이름을 같은 기관으로 묶어야 했다. 이름이 비슷한 쪽을 고르는 규칙을 썼는데 합병·개명에서 틀렸다. `Umpqua Bank`의 정답은 이름이 통째로 바뀐 `Columbia Bank`였고, 반대로 **이름이 완전히 일치하는 후보가 오답**인 경우도 있었다.',
     impact:
