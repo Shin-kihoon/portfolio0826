@@ -30,3 +30,23 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(113, 113, 122, 0.6);
 }
+
+/* 인쇄 — 지원서에 첨부할 PDF로 뽑을 때.
+   카드가 페이지 경계에서 잘리면 읽는 사람이 앞뒤를 맞춰 봐야 한다. */
+@media print {
+  #main-header {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+  article,
+  section > div > div > div {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+}

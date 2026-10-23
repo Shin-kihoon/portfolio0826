@@ -6,7 +6,7 @@ export const PERSONAL_INFO = {
   title: '데이터 분석가',
   titleEn: 'Data Analyst',
   tagline: 'Python · SQL · 통계 분석 — 금융 데이터',
-  email: 'kenny1008@snu.ac.kr',
+  email: 'kenny1008@naver.com',
   github: 'https://github.com/Shin-kihoon',
   githubHandle: 'Shin-kihoon',
   affiliation: '서울대학교 대학원 경영학과 재무금융 석사',
