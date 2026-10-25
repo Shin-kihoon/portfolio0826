@@ -212,7 +212,7 @@ export const PROJECTS_DATA: ProjectData[] = [
     id: 'fan-passport',
     kind: 'service',
     title: '디지털 팬 여권 — 양도 불가능한 참여 기록 기반 티켓 배분',
-    subtitle: '티켓 배분 메커니즘 설계와 컨트랙트 구현 · 서울대 KDT 핀테크 AI 13기',
+    subtitle: '티켓 배분 메커니즘 설계와 컨트랙트 구현 · 서울대 KDT 핀테크 AI 13기 · 개인',
     period: '2026.09',
     role: '개인',
     question:
