@@ -354,5 +354,4 @@ export const CERTIFICATIONS: Certification[] = [
   { name: '투자자산운용사', issuer: '금융투자협회', category: 'Finance' },
   { name: '빅데이터분석기사', issuer: '한국데이터산업진흥원', category: 'Data' },
   { name: 'SQLD', issuer: '한국데이터산업진흥원', category: 'Data' },
-  { name: 'TEPS', issuer: '서울대학교 언어교육원', category: 'Language' },
 ];

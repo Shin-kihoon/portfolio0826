@@ -37,7 +37,7 @@ export const content = {
 
   certifications: {
     eyebrow: 'Certifications',
-    heading: '자격증 및 어학',
+    heading: '자격증',
     subheading: '금융투자 전문인력 자격 · 국가공인 데이터 분석 자격',
   },
 
