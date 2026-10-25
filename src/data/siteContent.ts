@@ -44,7 +44,7 @@ export const content = {
   projects: {
     eyebrow: 'Projects',
     heading: '프로젝트',
-    subheading: '왜 했고, 무엇이 달라졌고, 무엇을 배웠는지',
+    subheading: '연구 1건 · 연구조교 2건 · 데이터 프로젝트 3건 · 학회 운영 1건',
     draftLabel: '내용 정리 중',
   },
 
