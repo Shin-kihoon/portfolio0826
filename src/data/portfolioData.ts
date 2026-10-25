@@ -54,6 +54,7 @@ export const PROJECTS_DATA: ProjectData[] = [
         caption: "끝 두 자리 분포. 00과 50에 68.9%가 집중되어 '두드러진 금액' 정의의 근거가 된다.",
       },
     ],
+    contribution: '주제 선정부터 데이터 구축 · 분석 · 집필까지 단독 수행.',
     limitation:
       '관측 데이터이므로 무작위 배정이 불가능하다. 매칭과 위약검정으로 대안 설명을 좁혔으나 인과로 단정하지 않았다.',
     links: [],
@@ -89,6 +90,7 @@ export const PROJECTS_DATA: ProjectData[] = [
         caption: '2020 Q1 = 100 지수 기준 한국과 주요국 평균 비교.',
       },
     ],
+    contribution: '연구조교로서 자료 조달 · 정제 · 시각화 담당. 연구 주제 설계는 교수 연구실.',
     limitation:
       '월별 자료는 제공 국가가 제한적이고 한국 자료가 불충분해 분기로 통일했다. 보완용 KOSIS 자료는 요금 수준이 아닌 가격지수다.',
     links: [],
@@ -120,6 +122,7 @@ export const PROJECTS_DATA: ProjectData[] = [
         caption: '질의 단위 top-1 정확도. 규칙 98.29% → GBDT 99.27%. GroupKFold 5분할 기준.',
       },
     ],
+    contribution: '연구조교로서 후보 수집 · 특징 설계 · 모델 학습과 평가 담당.',
     limitation:
       '정답 집합이 CRA 보고 은행 605곳으로 한정되어, 보고 의무가 없는 소형 기관에서의 성능은 확인하지 못했다.',
     links: [
@@ -219,6 +222,13 @@ export const PROJECTS_DATA: ProjectData[] = [
     learnings: [
       '규칙을 사후 적발이 아니라 거래 시점에 강제하면 통제 가능한 범위가 달라진다. 다만 통제되는 것은 기록되는 결제액뿐이다.',
     ],
+    shots: [
+      {
+        src: 'shot-fanpass.png',
+        caption:
+          '브라우저에서 돌아가는 시뮬레이터. 암표상이 여권을 팔려는 시도부터 공식 양도까지 단계별로 눌러 확인할 수 있다.',
+      },
+    ],
     stack: ['Solidity', 'Hardhat', 'GitHub Actions', 'JavaScript'],
     metrics: [
       { label: '컨트랙트', value: '3종', note: '참여 기록 · 티켓 배분 · 공식 양도' },
@@ -245,6 +255,13 @@ export const PROJECTS_DATA: ProjectData[] = [
       '벡터 검색 단독으로는 짧은 한국어 질의에서 오검색이 발생(“아아 하나” → 약과). 별칭 정확매칭을 1단계, 벡터 검색을 2단계로 둔 2단계 검색으로 전환하고, 질의 재작성과 의도 분류를 통합해 턴당 모델 호출을 3회에서 2회로 축소.',
     learnings: [
       '모델 보정보다 모델에 맡기지 않는 설계가 빨랐다. 가격 계산과 별칭 매칭을 코드로 분리하자 수정 범위가 줄었다.',
+    ],
+    shots: [
+      {
+        src: 'shot-moki-flow.png',
+        caption:
+          '처리 흐름. 별칭 정확매칭을 1단계에 두고 벡터 검색을 2단계로 내렸다. 질의 재작성과 의도 분류를 합쳐 턴당 모델 호출은 2회다.',
+      },
     ],
     stack: ['Python', 'Streamlit', 'FAISS', 'OpenAI API'],
     metrics: [
@@ -273,6 +290,13 @@ export const PROJECTS_DATA: ProjectData[] = [
       'animal.go.kr 공고 매니페스트 1,446건에서 지역 16개 시도·시군구와 품종 목록을 생성하고, 생성 시각과 스냅샷 범위를 결과 파일에 함께 기록했다.',
     learnings: [
       '선택지 명칭을 API 원본값 그대로 유지해야 서버의 텍스트 매칭과 화면 표기가 어긋나지 않는다. 보기 좋게 다듬는 순간 매칭이 깨진다.',
+    ],
+    shots: [
+      {
+        src: 'shot-petfinder.png',
+        caption:
+          '검색 화면. 왼쪽 입력부의 품종·지역 선택지와 다중 사진 업로드가 담당 범위다.',
+      },
     ],
     stack: ['Python', 'JavaScript'],
     metrics: [
