@@ -5,7 +5,6 @@ export const PERSONAL_INFO = {
   nameEn: 'Kihoon Shin',
   title: '데이터 분석가',
   titleEn: 'Data Analyst',
-  tagline: 'Python · SQL · 통계 분석 — 금융 데이터',
   email: 'kenny1008@naver.com',
   github: 'https://github.com/Shin-kihoon',
   githubHandle: 'Shin-kihoon',
@@ -17,7 +16,6 @@ export const PERSONAL_INFO = {
   bio: '금융 데이터 분석가. 사람이 남긴 숫자에서 행동을 읽고, 그 숫자를 믿어도 되는지까지 확인합니다.',
 };
 
-/** 카드는 짧게. 문제 한 줄 → 숫자 → 막힌 지점 → 도구. 설명하지 않는다. */
 /**
  * 카드는 목적 · 수행 · 결과 · 배운 점 순으로 적는다.
  * 서술을 늘리지 않고 명사형으로 끊는다. 구현 과정은 저장소에 있다.
@@ -341,7 +339,7 @@ export const EDUCATION_LIST: EducationData[] = [
     gpaNote: '이수 27학점 · 백분환산 96.2',
     status: '졸업',
     details: [
-      '석사학위논문: 한국 상장기업의 배당 정밀도와 주식수익률',
+      '석사학위논문: 배당금 금액 집중현상과 기업성과 — 한국 기업을 중심으로',
       '주요 이수: 재무연구방법론 · 계량경제학연구 · 데이터사이언스의 원리와 응용 · 행태주의 재무론 · 투자론연구 · 포트폴리오관리연구 · 투자관리세미나',
     ],
   },
@@ -358,14 +356,14 @@ export const EDUCATION_LIST: EducationData[] = [
     ],
   },
   {
-    institution: '서울대학교 빅데이터 핀테크 전문가과정 (13기)',
+    institution: '서울대학교 KDT 빅데이터 핀테크 AI 고급 전문가 과정 (13기)',
     degree: '수료',
     major: '금융 데이터 분석 · 머신러닝',
     period: '2026',
     status: '수료',
     details: [
       '머신러닝·딥러닝, 자연어처리, 데이터베이스 실습 과정 이수',
-      '팀 프로젝트: 연봉닥터 웹서비스 개발',
+      '프로젝트 4건: 연봉닥터 · 모키 키오스크 · 디지털 팬 여권 · PetFinder',
     ],
   },
 ];
@@ -387,7 +385,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       { name: '회귀분석', note: '패널 고정효과, 2-way 군집표준오차' },
       { name: '인과 추론', note: '공변량 매칭, 플라세보 검정, 누락변수 편의 진단' },
-      { name: '머신러닝', note: '로지스틱 회귀, 랜덤포레스트, 부스팅, AUC 평가' },
+      { name: '머신러닝', note: '로지스틱 회귀, 랜덤포레스트, XGBoost, ROC-AUC·F1 평가' },
       { name: '다중공선성 진단', note: 'VIF, 조건수, 계층적 회귀' },
     ],
   },
@@ -395,7 +393,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     category: '데이터 처리',
     description: '원자료를 분석 가능한 형태로',
     skills: [
-      { name: '패널 데이터 구축', note: '19,271 기업-연도 · 대출 111만 건 규모' },
+      { name: '패널 데이터 구축', note: '19,271 기업-연도 · 대출 74만 건 평가' },
       { name: '전처리', note: '결측 처리, 윈저라이징, 이상치 점검' },
       { name: '데이터 누출 차단', note: '시점 기준 분할, 학습 표본 내 전처리 학습' },
       { name: 'API 수집', note: 'OECD SDMX, FRED, Yahoo Finance, Frankfurter, FDIC' },
