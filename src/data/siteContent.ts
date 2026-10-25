@@ -51,7 +51,7 @@ export const content = {
 
   contact: {
     eyebrow: 'Contact',
-    heading: '연락 주세요',
+    heading: '연락처',
     /** 비워 두면 문단 자체가 그려지지 않는다. */
     body: '',
   },

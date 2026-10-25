@@ -22,8 +22,11 @@ const KEYPOINT_ICON: Record<ProjectIcon, React.ReactNode> = {
 
 const KIND_LABEL: Record<ProjectKind, string> = {
   thesis: '석사학위논문',
+  research: '연구조교',
   analysis: '데이터 분석',
   service: '웹 서비스',
+  protocol: '메커니즘 설계',
+  activity: '학회 운영',
 };
 
 export const ProjectsSection: React.FC = () => (
@@ -121,7 +124,7 @@ export const ProjectsSection: React.FC = () => (
                     }`}
                   >
                     <div
-                      className={`text-[10px] font-mono-code uppercase tracking-wider ${
+                      className={`text-[10px] font-mono-code tracking-wider ${
                         metric.highlight ? 'text-zinc-900' : 'text-zinc-500'
                       }`}
                     >

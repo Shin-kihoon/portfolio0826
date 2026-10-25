@@ -1,5 +1,5 @@
 export type ProjectIcon = 'chart' | 'check' | 'git' | 'search';
-export type ProjectKind = 'thesis' | 'analysis' | 'service';
+export type ProjectKind = 'thesis' | 'research' | 'analysis' | 'service' | 'protocol' | 'activity';
 
 export interface ProjectLink {
   label: string;

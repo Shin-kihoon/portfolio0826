@@ -13,7 +13,7 @@ export const PERSONAL_INFO = {
    * 첫 문장으로 무슨 일을 하는 사람인지 말하고, 뒤에서 그 문장을 실제 작업으로 받친다.
    * 스택 나열은 아래 기술 스택 섹션이 하므로 여기서 반복하지 않는다.
    */
-  bio: '금융 데이터 분석가. 사람이 남긴 숫자에서 행동을 읽고, 그 숫자를 믿어도 되는지까지 확인합니다.',
+  bio: '재무금융 석사. 금융·공공 데이터를 정제해 분석하고, 같은 결과가 다시 나오는지 확인하는 구조로 만듭니다.',
 };
 
 /**
@@ -26,7 +26,7 @@ export const PROJECTS_DATA: ProjectData[] = [
     kind: 'thesis',
     title: '석사학위논문 — 배당금 금액 집중현상과 기업성과',
     subtitle: '한국 상장기업 19,271 기업-연도 패널 · 단독 연구',
-    period: '2024.09 ~ 2026.08',
+    period: '2024.09 – 2026.08',
     role: '단독 연구',
     question:
       '국내 배당금은 끝자리 0과 5에 98.1%가 몰려 있다. 둥근 숫자를 쓰지 않는 기업이 자본배분 전반에서도 다른 성과를 내는지 검증했다.',
@@ -59,7 +59,7 @@ export const PROJECTS_DATA: ProjectData[] = [
   },
   {
     id: 'electricity-data',
-    kind: 'analysis',
+    kind: 'research',
     title: '전기요금 국제 비교 자료 정제',
     subtitle: 'OECD/IEA 원자료 정제와 비교 그래프 작성 · 연구조교',
     period: '2026.04',
@@ -95,7 +95,7 @@ export const PROJECTS_DATA: ProjectData[] = [
   },
   {
     id: 'bank-ppp-matching',
-    kind: 'analysis',
+    kind: 'research',
     title: '은행 식별번호 매칭 — 규칙 기반에서 분류 모델로',
     subtitle: '미국 PPP 대출기관을 감독기관 식별번호(RSSD ID)에 연결 · 연구조교',
     period: '2025',
@@ -135,7 +135,7 @@ export const PROJECTS_DATA: ProjectData[] = [
     period: '2026.08',
     role: '금융 데이터 파이프라인',
     question:
-      '명목 연봉이 올라도 물가가 더 오르면 실질임금은 감소한다. 공식 물가는 전 국민 평균이라 개인 체감과 어긋나므로, 개인의 지출 구성으로 물가를 재계산해 실질 연봉을 진단하는 서비스다.\n\n담당은 금융 데이터 파이프라인. 별도 DB 없이 서버가 금융 API를 직접 호출해 사용자가 최신 값을 보게 하고, 이후 수작업 없이 갱신되는 구조를 목표로 했다.',
+      '명목 연봉이 올라도 물가가 더 오르면 실질임금은 감소한다. 공식 물가는 전 국민 평균이라 개인 체감과 어긋나므로, 개인의 지출 구성으로 물가를 재계산해 실질 연봉을 진단하는 서비스다.\n\n별도 DB 없이 서버가 금융 API를 직접 호출해 사용자가 최신 값을 보게 하고, 이후 수작업 없이 갱신되는 구조를 목표로 했다.',
     impact:
       '출처를 실시간 조회 3곳과 주간 스냅샷 2곳으로 분리하고, 검증을 통과한 경우에만 데이터가 배포되도록 구성. 주 1회 자동 갱신 20회 연속 통과.',
     learnings: [
@@ -208,11 +208,11 @@ export const PROJECTS_DATA: ProjectData[] = [
   },
   {
     id: 'fan-passport',
-    kind: 'service',
+    kind: 'protocol',
     title: '디지털 팬 여권 — 양도 불가능한 참여 기록 기반 티켓 배분',
     subtitle: '티켓 배분 메커니즘 설계와 컨트랙트 구현 · 서울대 KDT 핀테크 AI 13기 · 개인',
     period: '2026.09',
-    role: '개인',
+    role: '단독 · 설계 · 컨트랙트 구현',
     question:
       '기획사는 매진 자체가 상품 가치의 일부라 가격을 시장청산 수준까지 올리지 않는다. 정가와 실제 가치의 차이는 구조적으로 남고, 지금은 그 차이를 암표상이 가져간다.\n\n좌석 일부를 **돈으로 살 수 없는 단위**로 배분해 그 귀속을 바꾸는 구조를 설계하고 구현했다.',
     impact:
@@ -309,9 +309,9 @@ export const PROJECTS_DATA: ProjectData[] = [
   },
   {
     id: 'lfirm',
-    kind: 'service',
-    title: 'L-Firm 회장 — 대학원 금융학회 운영',
-    subtitle: '서울대학교 대학원 금융학회 · 논문 세미나 운영',
+    kind: 'activity',
+    title: 'L-Firm 회장 — 서울대학교 대학원 금융학회',
+    subtitle: '논문 세미나 운영 · 신입 모집 설계',
     period: '2025.09 – 2026.08',
     role: '회장',
     question:
@@ -334,7 +334,7 @@ export const EDUCATION_LIST: EducationData[] = [
     institution: '서울대학교 대학원 경영학과',
     degree: '경영학석사',
     major: '재무금융',
-    period: '2024.09 ~ 2026.08',
+    period: '2024.09 – 2026.08',
     gpa: '3.92 / 4.3',
     gpaNote: '이수 27학점 · 백분환산 96.2',
     status: '졸업',
@@ -347,7 +347,7 @@ export const EDUCATION_LIST: EducationData[] = [
     institution: '건국대학교',
     degree: '경제학사 · 경영학사 (다전공)',
     major: '경제학과 · 경영학과',
-    period: '2018.03 ~ 2024.02',
+    period: '2018.03 – 2024.02',
     gpa: '4.17 / 4.5',
     gpaNote: '전공 4.25 · 다전공 4.46',
     details: [
@@ -357,10 +357,10 @@ export const EDUCATION_LIST: EducationData[] = [
   },
   {
     institution: '서울대학교 KDT 빅데이터 핀테크 AI 고급 전문가 과정 (13기)',
-    degree: '수료',
+    degree: '빅데이터 핀테크 AI 고급 전문가 과정',
     major: '금융 데이터 분석 · 머신러닝',
     period: '2026',
-    status: '수료',
+    status: '수료 예정',
     details: [
       '머신러닝·딥러닝, 자연어처리, 데이터베이스 실습 과정 이수',
       '프로젝트 4건: 연봉닥터 · 모키 키오스크 · 디지털 팬 여권 · PetFinder',
