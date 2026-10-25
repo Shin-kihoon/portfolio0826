@@ -26,7 +26,9 @@ export const ContactSection: React.FC = () => {
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-serif-heading">
               {content.contact.heading}
             </h2>
-            <p className="text-sm text-zinc-400 leading-relaxed max-w-xl">{content.contact.body}</p>
+            {content.contact.body && (
+              <p className="text-sm text-zinc-400 leading-relaxed max-w-xl">{content.contact.body}</p>
+            )}
           </div>
 
           <div className="md:col-span-5 space-y-3">

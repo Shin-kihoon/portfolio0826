@@ -51,7 +51,8 @@ export const content = {
   contact: {
     eyebrow: 'Contact',
     heading: '연락 주세요',
-    body: '데이터 분석가 신입 포지션 지원 중. 이메일 주시면 이력서와 논문 원문 회신.',
+    /** 비워 두면 문단 자체가 그려지지 않는다. */
+    body: '',
   },
 } as const;
 
