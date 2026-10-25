@@ -18,7 +18,7 @@ export const ContactSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           <div className="md:col-span-7 space-y-3">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-zinc-100" />
               <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 font-mono-code">
                 {content.contact.eyebrow}
               </span>
@@ -51,7 +51,7 @@ export const ContactSection: React.FC = () => {
               >
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    <Check className="w-3.5 h-3.5 text-zinc-500" />
                     <span>복사됨</span>
                   </>
                 ) : (

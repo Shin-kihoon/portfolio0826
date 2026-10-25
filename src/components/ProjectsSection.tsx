@@ -15,9 +15,9 @@ import type { ProjectIcon, ProjectKind } from '../types';
 
 const KEYPOINT_ICON: Record<ProjectIcon, React.ReactNode> = {
   chart: <BarChart3 className="w-4 h-4 text-zinc-500 shrink-0" />,
-  check: <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />,
-  git: <GitBranch className="w-4 h-4 text-indigo-600 shrink-0" />,
-  search: <Search className="w-4 h-4 text-amber-600 shrink-0" />,
+  check: <CheckCircle2 className="w-4 h-4 text-zinc-500 shrink-0" />,
+  git: <GitBranch className="w-4 h-4 text-zinc-500 shrink-0" />,
+  search: <Search className="w-4 h-4 text-zinc-500 shrink-0" />,
 };
 
 const KIND_LABEL: Record<ProjectKind, string> = {
@@ -60,7 +60,7 @@ export const ProjectsSection: React.FC = () => (
                   <span className="text-zinc-300">·</span>
                   <span className="text-zinc-600">{project.role}</span>
                   {project.draft && (
-                    <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-200">
+                    <span className="px-2 py-0.5 rounded bg-zinc-100 text-zinc-500 border border-zinc-200">
                       {content.projects.draftLabel}
                     </span>
                   )}
@@ -86,7 +86,7 @@ export const ProjectsSection: React.FC = () => (
                       }`}
                     >
                       {link.kind === 'demo' ? (
-                        <Play className="w-3.5 h-3.5 text-emerald-400" />
+                        <Play className="w-3.5 h-3.5" />
                       ) : (
                         <Github className="w-3.5 h-3.5" />
                       )}
@@ -116,27 +116,27 @@ export const ProjectsSection: React.FC = () => (
                     key={metric.label}
                     className={`p-3.5 rounded-xl border space-y-1 ${
                       metric.highlight
-                        ? 'bg-emerald-50/70 border-emerald-200'
+                        ? 'bg-white border-zinc-900/70'
                         : 'bg-zinc-50 border-zinc-200/80'
                     }`}
                   >
                     <div
                       className={`text-[10px] font-mono-code uppercase tracking-wider ${
-                        metric.highlight ? 'text-emerald-700' : 'text-zinc-500'
+                        metric.highlight ? 'text-zinc-900' : 'text-zinc-500'
                       }`}
                     >
                       {metric.label}
                     </div>
                     <div
                       className={`text-lg font-bold font-mono-code leading-tight ${
-                        metric.highlight ? 'text-emerald-950' : 'text-zinc-900'
+                        metric.highlight ? 'text-zinc-950' : 'text-zinc-900'
                       }`}
                     >
                       {metric.value}
                     </div>
                     <div
                       className={`text-[11px] leading-snug ${
-                        metric.highlight ? 'text-emerald-800' : 'text-zinc-500'
+                        metric.highlight ? 'text-zinc-700' : 'text-zinc-500'
                       }`}
                     >
                       {metric.note}
@@ -229,11 +229,11 @@ export const ProjectsSection: React.FC = () => (
                   </div>
                 )}
                 {project.limitation && (
-                  <div className="p-3.5 rounded-xl bg-amber-50/60 border border-amber-200/70 space-y-1">
-                    <div className="text-[10px] font-mono-code uppercase tracking-wider text-amber-700">
+                  <div className="p-3.5 rounded-xl bg-zinc-50 border border-zinc-200/80 space-y-1">
+                    <div className="text-[10px] font-mono-code uppercase tracking-wider text-zinc-500">
                       아쉬운 점
                     </div>
-                    <p className="text-xs text-amber-900/80 leading-relaxed">
+                    <p className="text-xs text-zinc-600 leading-relaxed">
                       {renderRich(project.limitation)}
                     </p>
                   </div>

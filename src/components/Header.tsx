@@ -72,7 +72,7 @@ export const Header: React.FC = () => {
           >
             {copied ? (
               <>
-                <Check className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
+                <Check className="w-3.5 h-3.5 shrink-0 text-zinc-500" />
                 <span className="font-mono-code">{content.header.copied}</span>
               </>
             ) : (

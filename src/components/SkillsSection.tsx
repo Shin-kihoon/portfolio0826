@@ -4,10 +4,10 @@ import { SKILL_CATEGORIES } from '../data/portfolioData';
 import { content } from '../data/siteContent';
 
 const CATEGORY_ICON: Record<string, React.ReactNode> = {
-  '언어 · 도구': <Terminal className="w-4 h-4 text-emerald-600" />,
-  '통계 · 계량 분석': <Sigma className="w-4 h-4 text-indigo-600" />,
+  '언어 · 도구': <Terminal className="w-4 h-4 text-zinc-500" />,
+  '통계 · 계량 분석': <Sigma className="w-4 h-4 text-zinc-500" />,
   '데이터 처리': <Database className="w-4 h-4 text-cyan-600" />,
-  '재무 · 도메인': <LineChart className="w-4 h-4 text-amber-600" />,
+  '재무 · 도메인': <LineChart className="w-4 h-4 text-zinc-500" />,
 };
 
 export const SkillsSection: React.FC = () => (

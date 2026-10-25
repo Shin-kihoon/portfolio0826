@@ -4,9 +4,9 @@ import { CERTIFICATIONS } from '../data/portfolioData';
 import { content } from '../data/siteContent';
 
 const CATEGORY_STYLE = {
-  Finance: { icon: <Award className="w-4 h-4 text-emerald-600" />, chip: 'bg-emerald-100 text-emerald-800' },
-  Data: { icon: <Shield className="w-4 h-4 text-indigo-600" />, chip: 'bg-indigo-100 text-indigo-800' },
-  Language: { icon: <Globe className="w-4 h-4 text-amber-600" />, chip: 'bg-amber-100 text-amber-800' },
+  Finance: { icon: <Award className="w-4 h-4 text-zinc-500" />, chip: 'bg-zinc-100 text-zinc-700' },
+  Data: { icon: <Shield className="w-4 h-4 text-zinc-500" />, chip: 'bg-zinc-100 text-zinc-700' },
+  Language: { icon: <Globe className="w-4 h-4 text-zinc-500" />, chip: 'bg-zinc-100 text-zinc-700' },
 } as const;
 
 export const CertificationsSection: React.FC = () => (
