@@ -17,7 +17,8 @@ export const content = {
   },
 
   hero: {
-    availability: '2026.08 석사 졸업 · 즉시 입사 가능',
+    /** 비워 두면 줄 자체가 그려지지 않는다. */
+    availability: '',
     ctaPrimary: '프로젝트 보기',
     ctaSecondary: '기술 스택',
     emailLabel: 'Email',

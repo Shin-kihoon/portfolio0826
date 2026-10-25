@@ -20,7 +20,9 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToSection }) => {
     <section id="hero" className="relative pt-10 pb-14 md:pt-16 md:pb-20 border-b border-zinc-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-6">
-            <p className="text-xs text-zinc-500 font-mono-code">{content.hero.availability}</p>
+            {content.hero.availability && (
+              <p className="text-xs text-zinc-500 font-mono-code">{content.hero.availability}</p>
+            )}
 
             <div className="space-y-2">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-950 font-serif-heading">
