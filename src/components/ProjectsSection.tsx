@@ -103,7 +103,7 @@ export const ProjectsSection: React.FC = () => (
               <div className="text-[10px] font-mono-code uppercase tracking-wider text-zinc-500">
                 왜 했나
               </div>
-              <p className="text-sm text-zinc-800 leading-relaxed">
+              <p className="text-sm text-zinc-800 leading-relaxed whitespace-pre-line">
                 {renderRich(project.question)}
               </p>
             </div>
