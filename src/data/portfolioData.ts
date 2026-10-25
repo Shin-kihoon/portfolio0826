@@ -376,7 +376,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: 'Python', note: 'pandas, NumPy, statsmodels, scikit-learn, matplotlib' },
       { name: 'SQL', note: '조인, 집계, 윈도우 함수 (SQLD 취득)' },
       { name: 'R', note: '공시 데이터 파싱 및 전처리' },
-      { name: 'Git / GitHub', note: '브랜치 운용, GitHub Actions, Git LFS' },
+      { name: 'Git / GitHub', note: '브랜치 운용, GitHub Actions' },
     ],
   },
   {

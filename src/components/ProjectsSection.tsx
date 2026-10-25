@@ -154,11 +154,11 @@ export const ProjectsSection: React.FC = () => (
               </p>
             )}
 
-            {/* 러닝 포인트 — 다음에 쓸 수 있게 된 것 */}
+            {/* 배운 점 — 다음에 쓸 수 있게 된 것 */}
             {project.learnings.length > 0 && (
               <div className="rounded-xl border border-zinc-900/10 bg-zinc-900/[0.03] p-4 space-y-2.5">
                 <div className="text-[10px] font-mono-code uppercase tracking-wider text-zinc-500">
-                  러닝 포인트
+                  배운 점
                 </div>
                 {project.learnings.map((line) => (
                   <p key={line} className="flex gap-2 text-sm text-zinc-800 leading-relaxed">
