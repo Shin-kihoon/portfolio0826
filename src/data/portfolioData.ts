@@ -206,6 +206,33 @@ export const PROJECTS_DATA: ProjectData[] = [
     links: [],
   },
   {
+    id: 'fan-passport',
+    kind: 'service',
+    title: '디지털 팬 여권 — 양도 불가능한 참여 기록 기반 티켓 배분',
+    subtitle: '티켓 배분 메커니즘 설계와 컨트랙트 구현 · 서울대 KDT 핀테크 AI 13기',
+    period: '2026.09',
+    role: '개인',
+    question:
+      '기획사는 매진 자체가 상품 가치의 일부라 가격을 시장청산 수준까지 올리지 않는다. 정가와 실제 가치의 차이는 구조적으로 남고, 지금은 그 차이를 암표상이 가져간다.\n\n좌석 일부를 **돈으로 살 수 없는 단위**로 배분해 그 귀속을 바꾸는 구조를 설계하고 구현했다.',
+    impact:
+      '참여 기록을 양도 불가능하게 설계하고 5년 선형 감가를 적용. 좌석을 점수 경매와 추첨 두 갈래로 분리하고, 개인 간 전송을 차단하되 4개 조건을 만족하는 공식 양도 경로만 열었다. 커밋마다 실제 EVM에서 데모 시나리오를 실행하는 CI를 구성했다.',
+    learnings: [
+      '규칙을 사후 적발이 아니라 거래 시점에 강제하면 통제 가능한 범위가 달라진다. 다만 통제되는 것은 기록되는 결제액뿐이다.',
+    ],
+    stack: ['Solidity', 'Hardhat', 'GitHub Actions', 'JavaScript'],
+    metrics: [
+      { label: '컨트랙트', value: '3종', note: '참여 기록 · 티켓 배분 · 공식 양도' },
+      { label: '공식 양도 조건', value: '4개', note: '가격 상한 · 본인확인 · 중복 보유 · 수령 동의', highlight: true },
+      { label: '점수 감가', value: '5년 선형', note: '오래된 기록의 영구 우선권 방지' },
+    ],
+    limitation:
+      '장외 웃돈 거래는 막지 못한다. 양수인 본인확인과 리워드 차등으로 유인을 줄이는 선에서 그쳤고, 제안서에 한계로 명시했다.',
+    links: [
+      { label: '눌러보는 데모', url: 'https://snu-project.github.io/fan-passport/', kind: 'demo' },
+      { label: '코드', url: 'https://github.com/Shin-kihoon/fan-passport', kind: 'repo' },
+    ],
+  },
+  {
     id: 'moki-kiosk',
     kind: 'service',
     title: '모키 키오스크 — RAG 주문 키오스크 검색 설계',
@@ -231,6 +258,31 @@ export const PROJECTS_DATA: ProjectData[] = [
       '수업 과제 규모다. 검증 질문 47개는 데이터팀이 작성했고, 일괄 실행과 기록까지만 구현해 자동 채점은 없다.',
     links: [
       { label: '코드 · 검증 러너', url: 'https://github.com/Shin-kihoon/moki-kiosk', kind: 'repo' },
+    ],
+  },
+  {
+    id: 'petfinder',
+    kind: 'analysis',
+    title: 'PetFinder — 실종견 검색 입력과 선택지 데이터',
+    subtitle: '유기동물 공고 기반 입력 선택지 생성 · 팀 프로젝트',
+    period: '2026.09',
+    role: '입력 설계 · 선택지 데이터',
+    question:
+      '실종견 사진으로 보호소 공고에서 같은 개체를 찾는 서비스. 검색 입력의 지역·품종 선택지를 실제 공고 데이터에서 만들어야 했다.',
+    impact:
+      'animal.go.kr 공고 매니페스트 1,446건에서 지역 16개 시도·시군구와 품종 목록을 생성하고, 생성 시각과 스냅샷 범위를 결과 파일에 함께 기록했다.',
+    learnings: [
+      '선택지 명칭을 API 원본값 그대로 유지해야 서버의 텍스트 매칭과 화면 표기가 어긋나지 않는다. 보기 좋게 다듬는 순간 매칭이 깨진다.',
+    ],
+    stack: ['Python', 'JavaScript'],
+    metrics: [
+      { label: '공고 스냅샷', value: '1,446건', note: '2026.08.19 – 09.14', highlight: true },
+      { label: '지역 선택지', value: '16개 시도', note: '시군구 단위까지' },
+    ],
+    contribution: '입력 UI와 선택지 데이터 담당. 개체 재식별 모델은 다른 팀원이 담당했다.',
+    limitation: '',
+    links: [
+      { label: '코드', url: 'https://github.com/koosamuel/petfinder', kind: 'repo' },
     ],
   },
   {
